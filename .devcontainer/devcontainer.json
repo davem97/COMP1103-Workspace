@@ -1,0 +1,23 @@
+{
+  "name": "COMP1103: Assignment Repo",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "web",
+  "workspaceFolder": "/workspaces/COMP1103-Workspace",
+  "forwardPorts": [8080],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.php-debug",
+        "felixfbecker.php-intellisense",
+        "bmewburn.vscode-intelephense-client",
+        "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-docker",
+        "dbaeumer.vscode-eslint",
+        "cweijan.vscode-mysql-client2",
+        "github.vscode-pull-request-github",
+        "bierner.github-markdown-preview"
+      ]
+    }
+  },
+  "postCreateCommand": "chmod -R 777 /var/www/html"
+}
