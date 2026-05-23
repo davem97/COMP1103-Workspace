@@ -1,0 +1,480 @@
+/* =========================================
+   1. GLOBAL STYLES
+   ========================================= */
+/* Apply this to the top of your CSS */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0; /* Removes default browser margin */
+}
+
+h1, h2, h3 {
+    font-family: Arial, sans-serif; /* Fixed for better browser support */
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* Helper to hide text from users but keep it for Google (SEO) */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* =========================================
+   2. HEADER & TOP NAVIGATION (Flexbox)
+   ========================================= */
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    /* Removed text-align: center so Flexbox handles the layout */
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between; /* Space out Menu, Logo, and Donate */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+}
+
+.logo-wrap {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.main-logo-img {
+    width: 145px;
+    height: auto;
+    display: block;
+}
+
+/* Menu & Donate Buttons */
+.nav-btn {
+    padding: 10px 15px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.donate {
+    background-color: #d9534f;
+}
+
+/* =========================================
+   3. MAIN NAVIGATION LINKS (Home, Pets, etc.)
+   ========================================= */
+.main-navigation {
+    background-color: #ecf0f1;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.main-navigation ul {
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.main-navigation li {
+    display: inline-block;
+    margin: 0 10px; /* Fixed spacing bug here */
+}
+
+.main-navigation a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 5px 10px; /* Merged your padding rules */
+}
+
+.main-navigation a:hover {
+    color: #e67e22;
+}
+
+/* =========================================
+   4. MAIN CONTENT & FOOTER
+   ========================================= */
+main {
+    padding: 40px 20px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box; /* Ensures padding doesn't break max-width */
+}
+
+.main-hero-img {
+    display: block;
+    margin: 20px auto;
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    /* This is a professional mid-tone blue */
+    background-color: #4682b4; 
+    /* Changing text to white for contrast */
+    color: #ffffff; 
+}
+
+footer hr {
+    border: 0;
+    /* Making the line white so it shows up on the blue */
+    border-top: 1px solid rgba(255, 255, 255, 0.3); 
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center;    /* Centers them horizontally */
+}
+
+.footer-section {
+    /* Decreased from 25px to 15px to bring sections closer together */
+    margin-bottom: 15px;    
+    font-style: normal;
+}
+
+.footer-section p {
+    /* This handles the gap between the bold header and the info below it */
+    margin: 2px 0;          
+}
+
+.footer-logo {
+    /* Increased from 100px to 115px (15% increase) */
+    width: 120px;           
+    height: auto;
+    /* Decreased margin below the logo to bring the "Call" section closer */
+    margin-bottom: 20px;    
+}
+
+/* Ensure the feedback link is visible on the blue background */
+.feedback-link {
+    color: #ffffff;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.feedback-link:hover {
+    color: #e67e22; /* Keep your orange hover for consistency */
+}
+
+/* Lighten the copyright text slightly so it doesn't compete with the main info */
+.copyright {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #d1d1d1;
+}
+
+/* =========================================
+   5. FORM STYLING
+   ========================================= */
+form {
+    background-color: #fff;
+    padding: 30px;
+    margin: 0 auto;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #27ae60;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="tel"], 
+select, 
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+input[type="submit"] {
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #219150;
+}
+
+/* =========================================
+   6. TABLE STYLING
+   ========================================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Container to center the search bar and button */
+.search-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Aligns vertically */
+    gap: 10px;               /* This creates the "small gap" you requested */
+    margin: 20px 0;         /* Space above (below image) and below (above text) */
+}
+
+/* Styling the input bar specifically for the search */
+#pet-search {
+    width: 300px;           /* Fixed width looks professional on desktop */
+    max-width: 60%;         /* Ensures it doesn't break on small mobile screens */
+    margin-bottom: 0;       /* Overrides your general input margin to keep it level with button */
+}
+
+/* Styling the Search button */
+.search-btn {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-btn:hover {
+    background-color: #34495e;
+}
+
+.search-section {
+    text-align: center;
+    margin-top: 10px; /* Reduced from 30px to bring it closer to the image */
+}
+
+.search-section h3 {
+    margin-top: 0;    /* Removes default browser spacing at the top */
+    margin-bottom: 8px; /* Keeps a tiny gap between text and the search bar */
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.welcome-message {
+    max-width: 800px;      /* Stops text from stretching too far (easier to read) */
+    margin: 40px auto;     /* Centers the whole block and adds space above/below */
+    text-align: center;    /* Keeps the "centered" vibe of your homepage */
+    font-size: 1.1rem;     /* Makes it slightly larger and more inviting */
+    line-height: 1.8;      /* Adds "breathing room" between lines of text */
+}
+
+.welcome-message a {
+    color: #0056b3;        /* Use your brand blue */
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.welcome-message a:hover {
+    color: #e67e22;        /* Your hover orange for consistency */
+}
+
+/* 1. The Outer Area - Width reduced by 15% */
+.slideshow-area {
+    width: 100%;
+    max-width: 680px; /* Your 15% reduced size */
+    margin: 20px auto;
+    /* Removed extra padding here to prevent overflow */
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;      
+    height: 500px; /* Increased from 400px */
+    background-color: #ddd; 
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 auto; 
+}
+
+/* 3. The Vertical Rectangle Arrows */
+.ss-btn {
+    position: absolute;
+    top: 50%;           /* Centers vertically */
+    transform: translateY(-50%);
+    width: 40px;        /* Width of your rectangle */
+    height: 100px;       /* Height of your rectangle */
+    background-color: rgba(44, 62, 80, 0.7); /* Semi-transparent navy */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    z-index: 10;        /* Ensures arrows stay on top of the image */
+}
+
+.prev { left: 0; border-radius: 0 5px 5px 0; }
+.next { right: 0; border-radius: 5px 0 0 5px; }
+
+.ss-btn:hover {
+    background-color: rgba(230, 126, 34, 0.9); /* Your orange hover color */
+}
+
+/* 4. Temporary Photo Placeholder Style */
+.photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-style: italic;
+}
+
+/* Hide all slides by default */
+.slide-item {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: relative; /* This prepares the container for the text overlay later */
+}
+
+/* Only show the slide that has the 'active' class */
+.slide-item.active {
+    display: block;
+}
+
+/* Ensure images fill the 500px height perfectly */
+.slide-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+/* Container for the name and gender */
+.slide-caption {
+    position: absolute;
+    bottom: 30px;      /* Space from the bottom edge */
+    left: 60px;        /* Space from the left edge (to clear the arrow) */
+    color: rgb(219, 217, 85);      /* Bright white text */
+    text-align: left;
+    z-index: 5;        /* Sits above the image but below the arrows */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Critical for readability */
+}
+
+/* Specific styling for the Name */
+.pet-name {
+    font-size: 2rem;   /* Large and bold */
+    font-weight: bold;
+    margin: 0;         /* Removes default paragraph spacing */
+    line-height: 1.1;
+}
+
+/* Specific styling for the Gender */
+.pet-gender {
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: normal;
+}
+
+/* =========================================
+   7. RESPONSIVE MEDIA QUERIES
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* Make the hero image larger on small screens */
+    .main-hero-img {
+        width: 90%; 
+    }
+
+    /* Make the search input wider so it's easier to tap */
+    #pet-search {
+        width: 80%;
+        max-width: none;
+    }
+
+    /* Stack the navigation links vertically if they get too crowded */
+    .main-navigation li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    /* Shrink the slideshow height so it doesn't take up the whole phone screen */
+    .slideshow-container {
+        height: 350px; /* Increased from 300px */
+    }
+
+    /* Make the footer horizontal line full width on mobile */
+    footer hr {
+        width: 95%;
+    }
+}
