@@ -14,11 +14,15 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: 0; /* Removes default browser margin */
+    margin: 0;
+    /* Removes default browser margin */
 }
 
-h1, h2, h3 {
-    font-family: Arial, sans-serif; /* Fixed for better browser support */
+h1,
+h2,
+h3 {
+    font-family: Arial, sans-serif;
+    /* Fixed for better browser support */
     color: #2c3e50;
     margin-bottom: 10px;
 }
@@ -46,7 +50,8 @@ header {
 
 .top-nav {
     display: flex;
-    justify-content: space-between; /* Space out Menu, Logo, and Donate */
+    justify-content: space-between;
+    /* Space out Menu, Logo, and Donate */
     align-items: center;
     padding: 10px 20px;
     background-color: #f0f0f0;
@@ -90,14 +95,16 @@ header {
 
 .main-navigation ul {
     list-style: none;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-
-.main-navigation li {
-    display: inline-block;
-    margin: 0 10px; /* Fixed spacing bug here */
+    margin: 0 auto;
+    /* Centers the whole menu container */
+    padding: 0 20px;
+    /* Adds a little safety padding on the sides */
+    display: flex;
+    /* Turns on the Flexbox magic */
+    justify-content: space-between;
+    /* Pushes links to the edges with equal gaps between */
+    max-width: 1200px;
+    /* Keeps the links aligned with your 'main' content width */
 }
 
 .main-navigation a {
@@ -105,7 +112,18 @@ header {
     color: #2c3e50;
     font-weight: bold;
     font-size: 1.1rem;
-    padding: 5px 10px; /* Merged your padding rules */
+    padding: 10px 0px;
+    /* Vertical padding for a larger click area */
+    display: block;
+}
+
+.main-navigation a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    /* Merged your padding rules */
 }
 
 .main-navigation a:hover {
@@ -120,7 +138,8 @@ main {
     margin: 0 auto;
     width: 100%;
     max-width: 1200px;
-    box-sizing: border-box; /* Ensures padding doesn't break max-width */
+    box-sizing: border-box;
+    /* Ensures padding doesn't break max-width */
 }
 
 .main-hero-img {
@@ -135,42 +154,44 @@ footer {
     text-align: center;
     padding: 40px 20px;
     /* This is a professional mid-tone blue */
-    background-color: #4682b4; 
+    background-color: #4682b4;
     /* Changing text to white for contrast */
-    color: #ffffff; 
+    color: #ffffff;
 }
 
 footer hr {
     border: 0;
     /* Making the line white so it shows up on the blue */
-    border-top: 1px solid rgba(255, 255, 255, 0.3); 
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
     width: 100%;
     margin-bottom: 25px;
 }
 
 .footer-content {
     display: flex;
-    flex-direction: column; /* Stacks items vertically */
-    align-items: center;    /* Centers them horizontally */
+    flex-direction: column;
+    /* Stacks items vertically */
+    align-items: center;
+    /* Centers them horizontally */
 }
 
 .footer-section {
     /* Decreased from 25px to 15px to bring sections closer together */
-    margin-bottom: 15px;    
+    margin-bottom: 15px;
     font-style: normal;
 }
 
 .footer-section p {
     /* This handles the gap between the bold header and the info below it */
-    margin: 2px 0;          
+    margin: 2px 0;
 }
 
 .footer-logo {
     /* Increased from 100px to 115px (15% increase) */
-    width: 120px;           
+    width: 120px;
     height: auto;
     /* Decreased margin below the logo to bring the "Call" section closer */
-    margin-bottom: 20px;    
+    margin-bottom: 20px;
 }
 
 /* Ensure the feedback link is visible on the blue background */
@@ -181,7 +202,8 @@ footer hr {
 }
 
 .feedback-link:hover {
-    color: #e67e22; /* Keep your orange hover for consistency */
+    color: #e67e22;
+    /* Keep your orange hover for consistency */
 }
 
 /* Lighten the copyright text slightly so it doesn't compete with the main info */
@@ -200,7 +222,7 @@ form {
     margin: 0 auto;
     max-width: 600px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 fieldset {
@@ -223,17 +245,17 @@ label {
     font-weight: bold;
 }
 
-input[type="text"], 
-input[type="email"], 
-input[type="tel"], 
-select, 
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
 textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 input[type="radio"] {
@@ -263,10 +285,11 @@ table {
     border-collapse: collapse;
     margin-top: 20px;
     background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+th,
+td {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -285,17 +308,24 @@ tr:hover {
 /* Container to center the search bar and button */
 .search-container {
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center;     /* Aligns vertically */
-    gap: 10px;               /* This creates the "small gap" you requested */
-    margin: 20px 0;         /* Space above (below image) and below (above text) */
+    justify-content: center;
+    /* Centers horizontally */
+    align-items: center;
+    /* Aligns vertically */
+    gap: 10px;
+    /* This creates the "small gap" you requested */
+    margin: 20px 0;
+    /* Space above (below image) and below (above text) */
 }
 
 /* Styling the input bar specifically for the search */
 #pet-search {
-    width: 300px;           /* Fixed width looks professional on desktop */
-    max-width: 60%;         /* Ensures it doesn't break on small mobile screens */
-    margin-bottom: 0;       /* Overrides your general input margin to keep it level with button */
+    width: 300px;
+    /* Fixed width looks professional on desktop */
+    max-width: 60%;
+    /* Ensures it doesn't break on small mobile screens */
+    margin-bottom: 0;
+    /* Overrides your general input margin to keep it level with button */
 }
 
 /* Styling the Search button */
@@ -316,60 +346,76 @@ tr:hover {
 
 .search-section {
     text-align: center;
-    margin-top: 10px; /* Reduced from 30px to bring it closer to the image */
+    margin-top: 10px;
+    /* Reduced from 30px to bring it closer to the image */
 }
 
 .search-section h3 {
-    margin-top: 0;    /* Removes default browser spacing at the top */
-    margin-bottom: 8px; /* Keeps a tiny gap between text and the search bar */
+    margin-top: 0;
+    /* Removes default browser spacing at the top */
+    margin-bottom: 8px;
+    /* Keeps a tiny gap between text and the search bar */
     font-size: 1.1rem;
     color: #2c3e50;
 }
 
 .welcome-message {
-    max-width: 800px;      /* Stops text from stretching too far (easier to read) */
-    margin: 40px auto;     /* Centers the whole block and adds space above/below */
-    text-align: center;    /* Keeps the "centered" vibe of your homepage */
-    font-size: 1.1rem;     /* Makes it slightly larger and more inviting */
-    line-height: 1.8;      /* Adds "breathing room" between lines of text */
+    max-width: 800px;
+    /* Stops text from stretching too far (easier to read) */
+    margin: 40px auto;
+    /* Centers the whole block and adds space above/below */
+    text-align: center;
+    /* Keeps the "centered" vibe of your homepage */
+    font-size: 1.1rem;
+    /* Makes it slightly larger and more inviting */
+    line-height: 1.8;
+    /* Adds "breathing room" between lines of text */
 }
 
 .welcome-message a {
-    color: #0056b3;        /* Use your brand blue */
+    color: #0056b3;
+    /* Use your brand blue */
     text-decoration: underline;
     font-weight: bold;
 }
 
 .welcome-message a:hover {
-    color: #e67e22;        /* Your hover orange for consistency */
+    color: #e67e22;
+    /* Your hover orange for consistency */
 }
 
 /* 1. The Outer Area - Width reduced by 15% */
 .slideshow-area {
     width: 100%;
-    max-width: 680px; /* Your 15% reduced size */
+    max-width: 680px;
+    /* Your 15% reduced size */
     margin: 20px auto;
     /* Removed extra padding here to prevent overflow */
 }
 
 .slideshow-container {
     position: relative;
-    width: 100%;      
-    height: 500px; /* Increased from 400px */
-    background-color: #ddd; 
+    width: 100%;
+    height: 500px;
+    /* Increased from 400px */
+    background-color: #ddd;
     border-radius: 8px;
     overflow: hidden;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 /* 3. The Vertical Rectangle Arrows */
 .ss-btn {
     position: absolute;
-    top: 50%;           /* Centers vertically */
+    top: 50%;
+    /* Centers vertically */
     transform: translateY(-50%);
-    width: 40px;        /* Width of your rectangle */
-    height: 100px;       /* Height of your rectangle */
-    background-color: rgba(44, 62, 80, 0.7); /* Semi-transparent navy */
+    width: 40px;
+    /* Width of your rectangle */
+    height: 100px;
+    /* Height of your rectangle */
+    background-color: rgba(44, 62, 80, 0.7);
+    /* Semi-transparent navy */
     color: white;
     border: none;
     cursor: pointer;
@@ -378,14 +424,23 @@ tr:hover {
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s;
-    z-index: 10;        /* Ensures arrows stay on top of the image */
+    z-index: 10;
+    /* Ensures arrows stay on top of the image */
 }
 
-.prev { left: 0; border-radius: 0 5px 5px 0; }
-.next { right: 0; border-radius: 5px 0 0 5px; }
+.prev {
+    left: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
 
 .ss-btn:hover {
-    background-color: rgba(230, 126, 34, 0.9); /* Your orange hover color */
+    background-color: rgba(230, 126, 34, 0.9);
+    /* Your orange hover color */
 }
 
 /* 4. Temporary Photo Placeholder Style */
@@ -404,7 +459,8 @@ tr:hover {
     display: none;
     width: 100%;
     height: 100%;
-    position: relative; /* This prepares the container for the text overlay later */
+    position: relative;
+    /* This prepares the container for the text overlay later */
 }
 
 /* Only show the slide that has the 'active' class */
@@ -416,26 +472,33 @@ tr:hover {
 .slide-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     display: block;
 }
 
 /* Container for the name and gender */
 .slide-caption {
     position: absolute;
-    bottom: 30px;      /* Space from the bottom edge */
-    left: 60px;        /* Space from the left edge (to clear the arrow) */
-    color: rgb(219, 217, 85);      /* Bright white text */
+    bottom: 30px;
+    /* Space from the bottom edge */
+    left: 60px;
+    /* Space from the left edge (to clear the arrow) */
+    color: rgb(219, 217, 85);
+    /* Bright white text */
     text-align: left;
-    z-index: 5;        /* Sits above the image but below the arrows */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Critical for readability */
+    z-index: 5;
+    /* Sits above the image but below the arrows */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    /* Critical for readability */
 }
 
 /* Specific styling for the Name */
 .pet-name {
-    font-size: 2rem;   /* Large and bold */
+    font-size: 2rem;
+    /* Large and bold */
     font-weight: bold;
-    margin: 0;         /* Removes default paragraph spacing */
+    margin: 0;
+    /* Removes default paragraph spacing */
     line-height: 1.1;
 }
 
@@ -451,9 +514,10 @@ tr:hover {
    ========================================= */
 
 @media (max-width: 768px) {
+
     /* Make the hero image larger on small screens */
     .main-hero-img {
-        width: 90%; 
+        width: 90%;
     }
 
     /* Make the search input wider so it's easier to tap */
@@ -470,11 +534,118 @@ tr:hover {
 
     /* Shrink the slideshow height so it doesn't take up the whole phone screen */
     .slideshow-container {
-        height: 350px; /* Increased from 300px */
+        height: 350px;
+        /* Increased from 300px */
     }
 
     /* Make the footer horizontal line full width on mobile */
     footer hr {
         width: 95%;
+    }
+}
+
+/* Container to align text left and image right */
+.purpose-container {
+    display: flex;
+    align-items: center;
+    /* Vertically centers the text with the image */
+    gap: 40px;
+    /* The gap between the text and the image */
+    margin: 40px 0;
+    /* Adds space above and below the whole section */
+}
+
+/* Make sure the text takes up the remaining space */
+.purpose-text {
+    flex: 1;
+}
+
+/* Update the image size */
+.shelter_img {
+    /* Increasing width slightly more to achieve that 15% height boost */
+    width: 48%;
+    height: auto;
+    /* This ensures the height grows perfectly with the width */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: block;
+    /* Good practice to prevent weird spacing issues */
+}
+
+/* Target H3 tags specifically inside the main content area */
+main h3 {
+    font-size: 1.5rem;
+    /* Slightly larger */
+    font-weight: bold;
+    /* Ensures it is bold */
+    color: #2c3e50;
+    /* Keeps your navy blue brand color */
+    margin-top: 25px;
+    /* Adds a bit of room above headers */
+}
+
+/* Target paragraphs specifically inside the main content area */
+main p {
+    font-size: 1.15rem;
+    /* Makes the body text feel more readable/inviting */
+    line-height: 1.8;
+    /* Increases "breathing room" between lines */
+    margin-bottom: 20px;
+}
+
+/* Ensures the side-by-side layout stacks on mobile phones */
+@media (max-width: 768px) {
+    .purpose-container {
+        flex-direction: column;
+    }
+
+    .shelter_img {
+        width: 100%;
+        /* Image goes full width on small screens */
+    }
+}
+
+/* 1. Change 950px to 1150px */
+@media (max-width: 1150px) {
+
+    .main-navigation {
+        display: none;
+        position: absolute;
+        /* Adjust 'top' if the menu overlaps your logo bar or sits too low */
+        top: 70px;
+        left: 0;
+        width: 250px;
+        background-color: #ecf0f1;
+        border: 1px solid #ddd;
+        z-index: 1000;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-navigation.show {
+        display: block;
+    }
+
+    .main-navigation ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .main-navigation li {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .main-navigation a {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+/* 2. Change 951px to 1151px */
+@media (min-width: 1151px) {
+    #menu-toggle {
+        display: none;
     }
 }
