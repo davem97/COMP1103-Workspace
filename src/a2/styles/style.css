@@ -247,6 +247,7 @@ label {
 
 input[type="text"],
 input[type="email"],
+input[type="number"], /* Add this line! */
 input[type="tel"],
 select,
 textarea {
@@ -507,6 +508,20 @@ tr:hover {
     font-size: 1.4rem;
     margin: 0;
     font-weight: normal;
+}
+
+.donation-disclaimer {
+    text-align: center;
+    color: #7f8c8d; /* A soft grey */
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+main h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #2c3e50;
 }
 
 /* =========================================
