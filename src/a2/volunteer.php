@@ -46,19 +46,25 @@
         <section class="volunteer-intro" style="padding: 20px; text-align: center;">
             <h2>Volunteer With Us</h2>
 
-            <!-- Section 1: Single centered box -->
-            <section class="volunteer-section single">
-                <div class="volunteer-header-box">
-                    <h3>Our Purpose</h3>
-                </div>
-                <p class="volunteer-text">
-                    At Happy Paws, we believe every animal deserves love, care, and a forever home.
-                    Our volunteers are the heart of everything we do — from walking dogs and socialising
-                    cats, to running adoption events and helping with day-to-day care. Whether you have
-                    a few hours a week or a full day to spare, your time can make a lasting difference
-                    in the lives of the animals waiting for their second chance.
-                </p>
-            </section>
+            <!-- Section 1: Single centered box with side images -->
+            <div class="purpose-with-images">
+                <img src="images/volunteer_img1.png" alt="Volunteers helping animals" class="purpose-side-img purpose-img-left">
+
+                <section class="volunteer-section single">
+                    <div class="volunteer-header-box">
+                        <h3>Our Purpose</h3>
+                    </div>
+                    <p class="volunteer-text">
+                        At Happy Paws, we believe every animal deserves love, care, and a forever home.
+                        Our volunteers are the heart of everything we do — from walking dogs and socialising
+                        cats, to running adoption events and helping with day-to-day care. Whether you have
+                        a few hours a week or a full day to spare, your time can make a lasting difference
+                        in the lives of the animals waiting for their second chance.
+                    </p>
+                </section>
+
+                <img src="images/volunteer_img2.png" alt="A happy volunteer with a pet" class="purpose-side-img purpose-img-right">
+            </div>
 
             <!-- Section 2: Two side-by-side boxes -->
             <section class="volunteer-pair">

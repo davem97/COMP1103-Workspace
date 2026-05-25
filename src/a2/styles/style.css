@@ -1535,3 +1535,70 @@ form.search-container {
 .clear-filters-btn:hover {
     background-color: rgba(255, 255, 255, 0.15);
 }
+
+/* =========================================
+   20. VOLUNTEER PURPOSE - SIDE IMAGES
+   ========================================= */
+
+/* Break out of main's 1200px max-width so images can reach the page edges */
+.purpose-with-images {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    /* These three properties let us escape the parent <main>'s width limit */
+    width: calc(100vw - 40px); /* viewport width minus a small safe margin */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); /* Center the now-wider element back to middle */
+    max-width: 1800px; /* Cap it on huge monitors */
+    margin: 0 auto 4rem auto;
+    padding: 0 2rem;
+}
+
+.purpose-side-img {
+    width: 316px; /* 15% larger than 275px */
+    height: 316px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.purpose-with-images .volunteer-section.single {
+    margin-bottom: 0;
+    max-width: 700px;
+}
+
+/* =========================================
+   RESPONSIVE - HIDE SIDE IMAGES ON SMALLER SCREENS
+   ========================================= */
+
+@media (max-width: 1150px) {
+    .purpose-side-img {
+        width: 259px; /* 15% larger than 225px */
+        height: 259px;
+    }
+
+    .purpose-with-images {
+        gap: 1.5rem;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 992px) {
+    .purpose-side-img {
+        display: none;
+    }
+
+    .purpose-with-images {
+        /* Reset the breakout when images are hidden — no need anymore */
+        width: auto;
+        left: auto;
+        transform: none;
+    }
+
+    .purpose-with-images .volunteer-section.single {
+        margin-bottom: 4rem;
+    }
+}
