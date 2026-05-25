@@ -139,6 +139,7 @@ main {
     width: 100%;
     max-width: 1200px;
     box-sizing: border-box;
+    flex: 1;
     /* Ensures padding doesn't break max-width */
 }
 
@@ -1204,4 +1205,64 @@ main p {
     background-color: #eaf3f8;
     text-align: center;
     font-size: 1.05rem;
+}
+
+/* =========================================
+   16. RESPONSIVE - ADMIN TABLE
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* Smaller padding inside table cells so they don't overflow */
+    th, td {
+        padding: 8px 10px;
+        font-size: 0.95rem;
+    }
+
+    /* Stack the admin action buttons on small screens */
+    .admin-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+    }
+
+    .admin-actions .nav-btn {
+        width: 80%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Allow horizontal scroll on tables that are too wide for tiny screens */
+    main {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 480px; /* Keeps the table readable, allows horizontal scroll if needed */
+    }
+
+    th, td {
+        padding: 6px 8px;
+        font-size: 0.9rem;
+    }
+
+    /* Hide the "ID" column on very small screens to save space */
+    th:first-child,
+    td:first-child {
+        display: none;
+    }
+}
+
+/* =========================================
+   17. RESPONSIVE - LOGIN PAGE SPACING
+   ========================================= */
+
+/* On short pages (login screen), add some breathing room
+   above the form so it doesn't hug the top nav */
+@media (min-height: 700px) {
+    main {
+        padding-top: 60px;
+    }
 }

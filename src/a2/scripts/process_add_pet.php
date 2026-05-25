@@ -1,4 +1,7 @@
 <?php
+session_start();
+if (!isset($_SESSION['logged_in'])) { header("Location: ../admin.php"); exit(); }
+
 // Only run if the form was submitted via POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: ../admin.php");

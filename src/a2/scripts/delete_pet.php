@@ -1,4 +1,7 @@
 <?php
+session_start();
+if (!isset($_SESSION['logged_in'])) { header("Location: ../admin.php"); exit(); }
+
 $petsFile = __DIR__ . '/../data/pets.json';
 $idToDelete = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $deletedName = '';
