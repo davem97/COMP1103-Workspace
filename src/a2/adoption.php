@@ -9,20 +9,42 @@ if (file_exists($petsFile)) {
     }
 }
 
-// Read the search term from URL (if any)
-$searchTerm = trim($_GET['search'] ?? '');
-$filteredPets = $pets; // Start with all pets
+// Read the search term and filters from URL (if any)
+$searchTerm    = trim($_GET['search'] ?? '');
+$colourFilter  = $_GET['color'] ?? [];  // array of checked colours
+$sizeFilter    = $_GET['size'] ?? [];   // array of checked sizes
+$ageFilter     = $_GET['age'] ?? [];    // array of checked age categories
 
+// Normalize filter values to lowercase for case-insensitive matching
+$colourFilter = array_map('strtolower', (array)$colourFilter);
+$sizeFilter   = array_map('strtolower', (array)$sizeFilter);
+$ageFilter    = array_map('strtolower', (array)$ageFilter);
+
+// Helper: figure out if a pet's age text means "baby" or "senior"
+function getAgeCategory($ageText)
+{
+    $ageText = strtolower($ageText);
+    // "Baby" = anything in months OR explicitly "1 year" or under
+    if (strpos($ageText, 'month') !== false) return 'baby';
+    // "Senior" = 7+ years (cats/dogs senior thresholds vary, 7 is common)
+    if (preg_match('/(\d+)\s*year/', $ageText, $match)) {
+        $years = (int)$match[1];
+        if ($years >= 7) return 'senior';
+    }
+    return 'adult';
+}
+
+// Start with all pets, then narrow down
+$filteredPets = $pets;
+
+// === Stage 1: Keyword search ===
 if ($searchTerm !== '') {
-    // Split the search into individual keywords, lowercase, remove empties
     $keywords = preg_split('/\s+/', strtolower($searchTerm));
     $keywords = array_filter($keywords, function ($word) {
-        return strlen($word) >= 2; // Ignore single characters
+        return strlen($word) >= 2;
     });
 
-    // Filter pets — keep any pet where at least one keyword matches
-    $filteredPets = array_filter($pets, function ($pet) use ($keywords) {
-        // Build a searchable text string from the pet's fields
+    $filteredPets = array_filter($filteredPets, function ($pet) use ($keywords) {
         $searchable = strtolower(
             $pet['name'] . ' ' .
                 $pet['breed'] . ' ' .
@@ -31,7 +53,6 @@ if ($searchTerm !== '') {
                 ($pet['colour'] ?? '')
         );
 
-        // OR logic: return true if ANY keyword is found
         foreach ($keywords as $word) {
             if (strpos($searchable, $word) !== false) {
                 return true;
@@ -39,10 +60,42 @@ if ($searchTerm !== '') {
         }
         return false;
     });
-
-    // Reindex the array (good practice after array_filter)
-    $filteredPets = array_values($filteredPets);
 }
+
+// === Stage 2: Colour filter (OR within category) ===
+if (!empty($colourFilter)) {
+    $filteredPets = array_filter($filteredPets, function ($pet) use ($colourFilter) {
+        $petColour = strtolower($pet['colour'] ?? '');
+        foreach ($colourFilter as $checkedColour) {
+            if (strpos($petColour, $checkedColour) !== false) {
+                return true;
+            }
+        }
+        return false;
+    });
+}
+
+// === Stage 3: Size filter ===
+if (!empty($sizeFilter)) {
+    $filteredPets = array_filter($filteredPets, function ($pet) use ($sizeFilter) {
+        $petSize = strtolower($pet['size'] ?? '');
+        return in_array($petSize, $sizeFilter);
+    });
+}
+
+// === Stage 4: Age category filter ===
+if (!empty($ageFilter)) {
+    $filteredPets = array_filter($filteredPets, function ($pet) use ($ageFilter) {
+        $category = getAgeCategory($pet['age']);
+        return in_array($category, $ageFilter);
+    });
+}
+
+// Reindex the array (good practice after array_filter)
+$filteredPets = array_values($filteredPets);
+
+// Are any filters or search active? (used to decide whether to show banner)
+$hasActiveFilters = $searchTerm !== '' || !empty($colourFilter) || !empty($sizeFilter) || !empty($ageFilter);
 ?>
 
 <!doctype html>
@@ -100,17 +153,17 @@ if ($searchTerm !== '') {
                     <div id="filter-dropdown" class="filter-dropdown-box">
                         <h3>Additional filters</h3>
                         <div class="checkbox-grid">
-                            <label><input type="checkbox" name="color[]" value="brown"> Brown</label>
-                            <label><input type="checkbox" name="color[]" value="white"> White</label>
-                            <label><input type="checkbox" name="color[]" value="blonde"> Blonde</label>
-                            <label><input type="checkbox" name="color[]" value="black"> Black</label>
-                            <label><input type="checkbox" name="color[]" value="red"> Red</label>
+                            <label><input type="checkbox" name="color[]" value="brown" <?= in_array('brown',  $colourFilter) ? 'checked' : '' ?>> Brown</label>
+                            <label><input type="checkbox" name="color[]" value="white" <?= in_array('white',  $colourFilter) ? 'checked' : '' ?>> White</label>
+                            <label><input type="checkbox" name="color[]" value="blonde" <?= in_array('blonde', $colourFilter) ? 'checked' : '' ?>> Blonde</label>
+                            <label><input type="checkbox" name="color[]" value="black" <?= in_array('black',  $colourFilter) ? 'checked' : '' ?>> Black</label>
+                            <label><input type="checkbox" name="color[]" value="red" <?= in_array('red',    $colourFilter) ? 'checked' : '' ?>> Red</label>
 
-                            <label><input type="checkbox" name="size[]" value="small"> Small</label>
-                            <label><input type="checkbox" name="size[]" value="medium"> Medium</label>
-                            <label><input type="checkbox" name="size[]" value="large"> Large</label>
-                            <label><input type="checkbox" name="age[]" value="baby"> Baby</label>
-                            <label><input type="checkbox" name="age[]" value="senior"> Senior</label>
+                            <label><input type="checkbox" name="size[]" value="small" <?= in_array('small',  $sizeFilter) ? 'checked' : '' ?>> Small</label>
+                            <label><input type="checkbox" name="size[]" value="medium" <?= in_array('medium', $sizeFilter) ? 'checked' : '' ?>> Medium</label>
+                            <label><input type="checkbox" name="size[]" value="large" <?= in_array('large',  $sizeFilter) ? 'checked' : '' ?>> Large</label>
+                            <label><input type="checkbox" name="age[]" value="baby" <?= in_array('baby',   $ageFilter)    ? 'checked' : '' ?>> Baby</label>
+                            <label><input type="checkbox" name="age[]" value="senior" <?= in_array('senior', $ageFilter)    ? 'checked' : '' ?>> Senior</label>
                         </div>
                         <button type="submit" class="apply-filters-btn">Apply Filter(s)</button>
                     </div>
@@ -118,19 +171,23 @@ if ($searchTerm !== '') {
             </form>
         </div>
 
-        <?php if ($searchTerm !== ''): ?>
+        <?php if ($hasActiveFilters): ?>
             <p class="search-results-info">
-                Showing results for: <strong>"<?= htmlspecialchars($searchTerm) ?>"</strong>
-                — <a href="adoption.php">Clear search</a>
+                <?php if ($searchTerm !== ''): ?>
+                    Showing results for: <strong>"<?= htmlspecialchars($searchTerm) ?>"</strong>
+                <?php else: ?>
+                    Showing filtered results
+                <?php endif; ?>
+                — <a href="adoption.php">Clear all filters</a>
             </p>
         <?php endif; ?>
 
         <section class="pet-display-container">
             <?php if (empty($filteredPets)): ?>
-                <?php if ($searchTerm !== ''): ?>
+                <?php if ($hasActiveFilters): ?>
                     <p class="no-results-message">
-                        Sorry, no pets matched your search for "<strong><?= htmlspecialchars($searchTerm) ?></strong>".
-                        <br>Try different keywords, or <a href="adoption.php">view all pets</a>.
+                        Sorry, no pets matched your search or filters.
+                        <br>Try different criteria, or <a href="adoption.php">view all pets</a>.
                     </p>
                 <?php else: ?>
                     <p>No pets available at the moment. Please check back soon!</p>

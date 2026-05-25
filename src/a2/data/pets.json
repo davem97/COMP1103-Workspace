@@ -6,26 +6,20 @@
         "gender": "Male",
         "breed": "Beagle",
         "colour": "White, Orange, Brown",
+        "size": "Medium",
         "price": 200,
         "microchip": "956000012345678",
         "tag": "HP-001",
         "sourceNumber": "VB12345",
         "image": "dog4.png",
-        "extraImages": [
-            "dog4_extra1.png",
-            "dog4_extra2.png"
-        ],
+        "extraImages": ["dog4_extra1.png", "dog4_extra2.png"],
         "additionalInfo": {
             "paragraphs": [
                 "Buster is a fun and energetic Beagle who loves to follow his nose. He enjoys long walks and playing fetch in the yard.",
                 "He gets along great with other dogs and loves meeting new people. Because he is so curious, he will need a yard with a very secure fence.",
                 "Buster would do best in an active home where he isn't left alone for too long."
             ],
-            "moreInfo": {
-                "Kids": "Any age",
-                "Weight": "11.2 kgs",
-                "Status": "Active"
-            },
+            "moreInfo": {"Kids": "Any age", "Weight": "11.2 kgs", "Status": "Active"},
             "closing": "Adopt Buster today and bring a bundle of joy and energy into your home."
         }
     },
@@ -36,26 +30,20 @@
         "gender": "Female",
         "breed": "Labrador",
         "colour": "Black",
+        "size": "Small",
         "price": 150,
         "microchip": "956000012345111",
         "tag": "HP-002",
         "sourceNumber": "VB12345",
         "image": "dog3.png",
-        "extraImages": [
-            "dog3_extra1.png",
-            "dog3_extra2.png"
-        ],
+        "extraImages": ["dog3_extra1.png", "dog3_extra2.png"],
         "additionalInfo": {
             "paragraphs": [
                 "Bella is a sweet and quiet cat who loves curling up in sunny windows. She is a bit shy at first, but very affectionate once she gets to know you.",
                 "She is an indoor-only cat and is completely litter-box trained. She enjoys chasing laser pointers and batting at string toys.",
                 "Bella prefers a calm environment and would be perfect for a quiet household without loud dogs."
             ],
-            "moreInfo": {
-                "Kids": "12+",
-                "Weight": "4.1 kgs",
-                "Status": "Active"
-            },
+            "moreInfo": {"Kids": "12+", "Weight": "4.1 kgs", "Status": "Active"},
             "closing": "Give Bella the loving, cozy home she deserves and you'll have a friend for life."
         }
     },
@@ -65,27 +53,21 @@
         "age": "5 years",
         "gender": "Male",
         "breed": "Golden Retriever",
-        "colour": "Cream",
+        "colour": "Blonde",
+        "size": "Large",
         "price": 300,
         "microchip": "956000012345222",
         "tag": "HP-003",
         "sourceNumber": "VB12345",
         "image": "dog1.png",
-        "extraImages": [
-            "dog1_extra1.png",
-            "dog1_extra2.png"
-        ],
+        "extraImages": ["dog1_extra1.png", "dog1_extra2.png"],
         "additionalInfo": {
             "paragraphs": [
                 "Max is a gentle giant with a heart of gold. He knows all his basic commands and walks beautifully on a lead.",
                 "He is very patient and loves being around people of all ages. Max is a big fan of belly rubs, swimming, and carrying his favorite stuffed toy around.",
                 "He gets along with cats and other dogs, making him a very easy addition to almost any family."
             ],
-            "moreInfo": {
-                "Kids": "All ages",
-                "Weight": "32.0 kgs",
-                "Status": "Active"
-            },
+            "moreInfo": {"Kids": "All ages", "Weight": "32.0 kgs", "Status": "Active"},
             "closing": "Max is ready to be your new best friend. Apply now to meet him!"
         }
     },
@@ -96,26 +78,20 @@
         "gender": "Female",
         "breed": "Tabby",
         "colour": "Brown",
+        "size": "Small",
         "price": 250,
         "microchip": "956000012345333",
         "tag": "HP-004",
         "sourceNumber": "VB12345",
         "image": "cat1.png",
-        "extraImages": [
-            "cat1_extra1.png",
-            "cat1_extra2.png"
-        ],
+        "extraImages": ["cat1_extra1.png", "cat1_extra2.png"],
         "additionalInfo": {
             "paragraphs": [
                 "Luna is a playful and curious cat. She loves climbing her cat tree and exploring every corner of the house.",
                 "She is full of energy but also enjoys a good cuddle on the couch at the end of the day.",
                 "Because she is still a young cat, she will need someone who has the time to play with her and teach her good habits as she grows."
             ],
-            "moreInfo": {
-                "Kids": "6+",
-                "Weight": "1.8 kgs",
-                "Status": "Active"
-            },
+            "moreInfo": {"Kids": "6+", "Weight": "1.8 kgs", "Status": "Active"},
             "closing": "Take little Luna home and watch her grow into a wonderful, fluffy companion."
         }
     },
@@ -125,27 +101,21 @@
         "age": "2 years",
         "gender": "Male",
         "breed": "Labrador",
-        "colour": "Cream",
+        "colour": "Blonde",
+        "size": "Medium",
         "price": 220,
         "microchip": "956000012345444",
         "tag": "HP-005",
         "sourceNumber": "VB12345",
         "image": "dog2.png",
-        "extraImages": [
-            "dog2_extra1.png",
-            "dog2_extra2.png"
-        ],
+        "extraImages": ["dog2_extra1.png", "dog2_extra2.png"],
         "additionalInfo": {
             "paragraphs": [
                 "Rocky is a goofy, loving boy who just wants to be part of the family. He has a big smile and a wagging tail for everyone he meets.",
                 "He has a lot of energy and would love a home where he gets a daily run or a good game of tug-of-war in the backyard.",
                 "Rocky is incredibly loyal and very food-motivated, which makes training him a breeze."
             ],
-            "moreInfo": {
-                "Kids": "8+",
-                "Weight": "22.5 kgs",
-                "Status": "Pending"
-            },
+            "moreInfo": {"Kids": "8+", "Weight": "22.5 kgs", "Status": "Pending"},
             "closing": "If you are looking for a fun, loyal, and active buddy, Rocky is your guy."
         }
     },
@@ -156,26 +126,20 @@
         "gender": "Female",
         "breed": "American Bobtail",
         "colour": "Brown",
+        "size": "Small",
         "price": 180,
         "microchip": "956000012345555",
         "tag": "HP-006",
         "sourceNumber": "VB12345",
         "image": "cat2.png",
-        "extraImages": [
-            "cat2_extra1.png",
-            "cat2_extra2.png"
-        ],
+        "extraImages": ["cat2_extra1.png", "cat2_extra2.png"],
         "additionalInfo": {
             "paragraphs": [
                 "Daisy is a sweet senior lady who is looking for a comfortable place to spend her golden years. She is very laid-back and quiet.",
                 "She doesn't need much exercise, just a short, slow walk each day and a warm lap to sit on while you watch TV.",
                 "Daisy is great with other calm pets and is perfectly house-trained. She just wants to be loved."
             ],
-            "moreInfo": {
-                "Kids": "10+",
-                "Weight": "4.5 kgs",
-                "Status": "Active"
-            },
+            "moreInfo": {"Kids": "10+", "Weight": "4.5 kgs", "Status": "Active"},
             "closing": "Open your heart to a senior cat and give Daisy the relaxing home she has been waiting for."
         }
     }
