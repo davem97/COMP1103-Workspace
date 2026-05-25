@@ -112,18 +112,8 @@ header {
     color: #2c3e50;
     font-weight: bold;
     font-size: 1.1rem;
-    padding: 10px 0px;
-    /* Vertical padding for a larger click area */
-    display: block;
-}
-
-.main-navigation a {
-    text-decoration: none;
-    color: #2c3e50;
-    font-weight: bold;
-    font-size: 1.1rem;
     padding: 5px 10px;
-    /* Merged your padding rules */
+    display: block;
 }
 
 .main-navigation a:hover {
@@ -138,9 +128,8 @@ main {
     margin: 0 auto;
     width: 100%;
     max-width: 1200px;
-    box-sizing: border-box;
-    flex: 1;
-    /* Ensures padding doesn't break max-width */
+    box-sizing: border-box; /* Ensures padding doesn't break max-width */
+    flex: 1; /* Pushes footer to bottom on short pages */
 }
 
 .main-hero-img {
@@ -686,16 +675,13 @@ main p {
     background-color: #34495e;
 }
 
-/* Responsive adjustment for the dropdown */
+/* Ensures the side-by-side layout stacks on mobile phones */
 @media (max-width: 768px) {
     .filter-dropdown-box {
         width: 280px;
         right: -50px; /* Center it better on small screens */
     }
-}
 
-/* Ensures the side-by-side layout stacks on mobile phones */
-@media (max-width: 768px) {
     .purpose-container {
         flex-direction: column;
     }
