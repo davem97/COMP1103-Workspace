@@ -1,6 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['logged_in'])) { header("Location: admin.php"); exit(); }
+if (!isset($_SESSION['logged_in'])) {
+    header("Location: admin.php");
+    exit();
+}
 
 // Get pet ID from URL
 $requestedId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
@@ -70,7 +73,7 @@ if ($pet === null) {
     <main>
         <h2>Edit Pet: <?= htmlspecialchars($pet['name']) ?></h2>
 
-        <form method="POST" action="scripts/process_edit_pet.php">
+        <form method="POST" action="scripts/process_edit_pet.php" enctype="multipart/form-data">
             <fieldset>
                 <legend>Basic Details</legend>
 
@@ -91,7 +94,7 @@ if ($pet === null) {
 
                 <label for="price">Price ($):</label>
                 <input type="number" id="price" name="price" min="0" step="0.01"
-                       value="<?= htmlspecialchars($pet['price']) ?>" required>
+                    value="<?= htmlspecialchars($pet['price']) ?>" required>
             </fieldset>
 
             <fieldset>
@@ -99,15 +102,47 @@ if ($pet === null) {
 
                 <label for="microchip">Microchip Number:</label>
                 <input type="text" id="microchip" name="microchip"
-                       value="<?= htmlspecialchars($pet['microchip']) ?>" required>
+                    value="<?= htmlspecialchars($pet['microchip']) ?>" required>
 
                 <label for="tag">Tag:</label>
                 <input type="text" id="tag" name="tag"
-                       value="<?= htmlspecialchars($pet['tag']) ?>" required>
+                    value="<?= htmlspecialchars($pet['tag']) ?>" required>
 
                 <label for="sourceNumber">Source Number:</label>
                 <input type="text" id="sourceNumber" name="sourceNumber"
-                       value="<?= htmlspecialchars($pet['sourceNumber']) ?>" required>
+                    value="<?= htmlspecialchars($pet['sourceNumber']) ?>" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Update Photos</legend>
+
+                <p><small>Only upload files if you want to replace the existing photos. Leave these blank to keep the current images.</small></p>
+
+                <label for="main_image">New Main Photo:</label>
+                <input type="file" id="main_image" name="main_image" accept="image/*">
+
+                <label for="extra_image_1">New Additional Photo #1:</label>
+                <input type="file" id="extra_image_1" name="extra_image_1" accept="image/*">
+
+                <label for="extra_image_2">New Additional Photo #2:</label>
+                <input type="file" id="extra_image_2" name="extra_image_2" accept="image/*">
+            </fieldset>
+
+            <fieldset>
+                <legend>Additional Info</legend>
+
+                <label for="kids">Suitable for kids:</label>
+                <input type="text" id="kids" name="kids"
+                    value="<?= htmlspecialchars($pet['additionalInfo']['moreInfo']['Kids'] ?? '') ?>" required>
+
+                <label for="weight">Weight:</label>
+                <input type="text" id="weight" name="weight"
+                    value="<?= htmlspecialchars($pet['additionalInfo']['moreInfo']['Weight'] ?? '') ?>" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="6" required><?php
+                                                                                echo htmlspecialchars($pet['additionalInfo']['paragraphs'][0] ?? '');
+                                                                                ?></textarea>
             </fieldset>
 
             <!-- Hidden field tells the handler which pet to update -->

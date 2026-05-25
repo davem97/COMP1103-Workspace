@@ -46,7 +46,7 @@ if (!isset($_SESSION['logged_in'])) {
     <main>
         <h2>Add New Pet</h2>
 
-        <form method="POST" action="scripts/process_add_pet.php">
+        <form method="POST" action="scripts/process_add_pet.php" enctype="multipart/form-data">
             <fieldset>
                 <legend>Basic Details</legend>
 
@@ -93,6 +93,19 @@ if (!isset($_SESSION['logged_in'])) {
 
                 <label for="description">Description:</label>
                 <textarea id="description" name="description" rows="6" placeholder="Tell us about this pet..." required></textarea>
+            </fieldset>
+
+            <fieldset>
+                <legend>Pet Photos</legend>
+
+                <label for="main_image">Main Photo:</label>
+                <input type="file" id="main_image" name="main_image" accept="image/*" required>
+
+                <label for="extra_image_1">Additional Photo #1:</label>
+                <input type="file" id="extra_image_1" name="extra_image_1" accept="image/*">
+
+                <label for="extra_image_2">Additional Photo #2:</label>
+                <input type="file" id="extra_image_2" name="extra_image_2" accept="image/*">
             </fieldset>
 
             <input type="submit" value="Add Pet">
