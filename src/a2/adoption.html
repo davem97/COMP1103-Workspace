@@ -2,30 +2,30 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="David Matic - mati0046" />
-  <meta name="description" content="Happy Paws Animal Shelter Homepage" />
-  <title>Happy Paws - Available for Adoption</title>
-  <link rel="stylesheet" href="styles/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="David Matic - mati0046" />
+    <meta name="description" content="Happy Paws Animal Shelter Homepage" />
+    <title>Happy Paws - Available for Adoption</title>
+    <link rel="stylesheet" href="styles/style.css" />
 </head>
 
 <body>
-  <header>
-    <nav class="top-nav">
-      <button class="nav-btn" id="menu-toggle">Menu</button>
+    <header>
+        <nav class="top-nav">
+            <button class="nav-btn" id="menu-toggle">Menu</button>
 
-      <div class="logo-wrap">
-        <img src="images/happy_paws_logo.png" alt="Happy Paws Animal Shelter main logo" class="main-logo-img" />
-      </div>
+            <div class="logo-wrap">
+                <img src="images/happy_paws_logo.png" alt="Happy Paws Animal Shelter main logo" class="main-logo-img" />
+            </div>
 
-      <button class="nav-btn donate">Donate</button>
-    </nav>
+            <button class="nav-btn donate">Donate</button>
+        </nav>
 
-    <h1 class="visually-hidden">Happy Paws Animal Shelter</h1>
-  </header>
+        <h1 class="visually-hidden">Happy Paws Animal Shelter</h1>
+    </header>
 
-  <nav class="main-navigation">
+    <nav class="main-navigation">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="adoption.html">Available Pets</a></li>
@@ -38,41 +38,84 @@
         </ul>
     </nav>
 
-  <main>
-    <div class="search-section">
-        <h2>Find Your Perfect Match</h2>
-        <div class="search-container">
-            <input type="text" id="pet-search" placeholder="Search by breed, age, or size..." />
-            <button type="button" class="search-btn">Search</button>
+    <main>
+        <div class="search-section">
+            <h2>Find Your Perfect Match</h2>
+            <div class="search-container">
+                <input type="text" id="pet-search" placeholder="Search by breed, age, or size..." />
+                <button type="button" class="search-btn">Search</button>
 
-            <div class="filter-wrapper">
-                <button type="button" id="filter-toggle" class="nav-btn">Filter</button>
-                
-                <div id="filter-dropdown" class="filter-dropdown-box">
-                    <h3>Additional filters</h3>
-                    
-                    <div class="checkbox-grid">
-                        <label><input type="checkbox" name="color" value="brown"> Brown</label>
-                        <label><input type="checkbox" name="color" value="white"> White</label>
-                        <label><input type="checkbox" name="color" value="blonde"> Blonde</label>
-                        <label><input type="checkbox" name="color" value="black"> Black</label>
-                        <label><input type="checkbox" name="color" value="red"> Red</label>
-                        
-                        <label><input type="checkbox" name="size" value="small"> Small</label>
-                        <label><input type="checkbox" name="size" value="medium"> Medium</label>
-                        <label><input type="checkbox" name="size" value="large"> Large</label>
-                        <label><input type="checkbox" name="age" value="baby"> Baby</label>
-                        <label><input type="checkbox" name="age" value="senior"> Senior</label>
+                <div class="filter-wrapper">
+                    <button type="button" id="filter-toggle" class="nav-btn">Filter</button>
+
+                    <div id="filter-dropdown" class="filter-dropdown-box">
+                        <h3>Additional filters</h3>
+                        <div class="checkbox-grid">
+                            <label><input type="checkbox" name="color" value="brown"> Brown</label>
+                            <label><input type="checkbox" name="color" value="white"> White</label>
+                            <label><input type="checkbox" name="color" value="blonde"> Blonde</label>
+                            <label><input type="checkbox" name="color" value="black"> Black</label>
+                            <label><input type="checkbox" name="color" value="red"> Red</label>
+
+                            <label><input type="checkbox" name="size" value="small"> Small</label>
+                            <label><input type="checkbox" name="size" value="medium"> Medium</label>
+                            <label><input type="checkbox" name="size" value="large"> Large</label>
+                            <label><input type="checkbox" name="age" value="baby"> Baby</label>
+                            <label><input type="checkbox" name="age" value="senior"> Senior</label>
+                        </div>
+                        <button type="button" class="apply-filters-btn">Apply Filter(s)</button>
                     </div>
-
-                    <button type="button" class="apply-filters-btn">Apply Filter(s)</button>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+        <section class="pet-display-container">
 
-  <footer>
+            <article class="pet-card">
+                <h3 class="pet-card-name">Jolly</h3>
+                <div class="pet-image-container">
+                    <img src="images/dog1.jpg" alt="Jolly - Labrador" class="pet-card-img">
+                </div>
+                <div class="pet-card-details">
+                    <p><strong>Age:</strong> TEMP TEMPTEMP TEMPTEMP</p>
+                    <p><strong>Gender:</strong> TEMP TEMP</p>
+                    <p><strong>Breed:</strong> TEMP TEMPr</p>
+                    <p><strong>Price:</strong> TEMP TEMP</p>
+                    <a href="pet-details.php?id=1" class="view-profile-btn">View Full Profile</a>
+                </div>
+            </article>
+
+            <article class="pet-card">
+                <h3 class="pet-card-name">Bella</h3>
+                <div class="pet-image-container">
+                    <img src="images/cat1.jpg" alt="Bella - Cat" class="pet-card-img">
+                </div>
+                <div class="pet-card-details">
+                    <p><strong>Age:</strong> 2 TEMP TEMP</p>
+                    <p><strong>Gender:</strong> TEMP TEMP</p>
+                    <p><strong>Breed:</strong>TEMP TEMP</p>
+                    <p><strong>Price:</strong> $200TEMP TEMPTEMP TEMP</p>
+                    <a href="pet-details.php?id=2" class="view-profile-btn">View Full Profile</a>
+                </div>
+            </article>
+
+            <article class="pet-card">
+                <h3 class="pet-card-name">Luna</h3>
+                <div class="pet-image-container">
+                    <img src="images/dog2.jpg" alt="Luna - Beagle" class="pet-card-img">
+                </div>
+                <div class="pet-card-details">
+                    <p><strong>Age:</strong> TEMP TEMP</p>
+                    <p><strong>Gender:</strong>TEMP TEMPe</p>
+                    <p><strong>Breed:</strong> TEMP TEMP</p>
+                    <p><strong>Price:</strong> TEMP TEMP</p>
+                    <a href="pet-details.php?id=3" class="view-profile-btn">View Full Profile</a>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer>
         <hr />
         <div class="footer-content">
             <img src="images/happy_paws_logo.png" alt="Happy Paws Logo" class="footer-logo" />
@@ -104,7 +147,7 @@
             <p class="copyright">© 2026 Happy Paws Animal Shelter</p>
         </div>
     </footer>
-  <script src="scripts/script.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>
