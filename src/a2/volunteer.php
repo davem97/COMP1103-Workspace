@@ -1,7 +1,3 @@
-<?php
-// We'll keep the PHP structure in case you want to pull volunteer data from JSON later
-// For now, we will hard-code the 3 roles for simplicity as discussed.
-?>
 <!doctype html>
 <html lang="en">
 
@@ -43,6 +39,13 @@
     </nav>
 
     <main>
+        <?php if (isset($_GET['enquiry']) && $_GET['enquiry'] === 'success'): ?>
+            <div class="floating-banner banner-success" id="admin-banner">
+                Thank you<?= isset($_GET['name']) ? ', ' . htmlspecialchars($_GET['name']) : '' ?>!
+                Your enquiry has been received. We'll be in touch within 2 business days.
+            </div>
+        <?php endif; ?>
+        
         <section class="volunteer-intro" style="padding: 20px; text-align: center;">
             <h2>Volunteer With Us</h2>
 
@@ -130,7 +133,7 @@
                     <p><strong>Suits:</strong> Animal lovers with a quiet home environment.</p>
                 </div>
                 <div class="volunteer-job-action">
-                    <button type="button" class="profile-btn apply-btn">Enquire Now</button>
+                    <a href="enquiry.php?role=Foster%20Care" class="profile-btn apply-btn">Enquire Now</a>
                 </div>
             </article>
 
@@ -142,7 +145,7 @@
                     <p><strong>Suits:</strong> Outgoing, confident communicators.</p>
                 </div>
                 <div class="volunteer-job-action">
-                    <button type="button" class="profile-btn apply-btn">Enquire Now</button>
+                    <a href="enquiry.php?role=Event%20Help" class="profile-btn apply-btn">Enquire Now</a>
                 </div>
             </article>
 
@@ -154,7 +157,7 @@
                     <p><strong>Suits:</strong> Hands-on people who like physical work.</p>
                 </div>
                 <div class="volunteer-job-action">
-                    <button type="button" class="profile-btn apply-btn">Enquire Now</button>
+                    <a href="enquiry.php?role=Shelter%20Support" class="profile-btn apply-btn">Enquire Now</a>
                 </div>
             </article>
 

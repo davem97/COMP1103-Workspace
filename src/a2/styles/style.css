@@ -1602,3 +1602,42 @@ form.search-container {
         margin-bottom: 4rem;
     }
 }
+
+/* =========================================
+   21. FLOATING TOP-OF-PAGE BANNER
+   ========================================= */
+
+/* Sits over the top of the page without pushing content down.
+   Used for transient confirmation messages (e.g. enquiry submitted) */
+.floating-banner {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000; /* Above everything (nav is z-index: 1000) */
+    max-width: 600px;
+    width: 90%;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 1;
+}
+
+/* When fading out, slide upward slightly for a polished feel */
+.floating-banner.banner-fade-out {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+}
+
+/* Responsive - phones */
+@media (max-width: 600px) {
+    .floating-banner {
+        top: 10px;
+        width: 95%;
+        padding: 0.85rem 1rem;
+        font-size: 0.98rem;
+    }
+}

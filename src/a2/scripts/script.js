@@ -88,6 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const adminBanner = document.getElementById("admin-banner");
 
   if (adminBanner) {
+    // Clean the URL so refreshing the page doesn't re-trigger the banner
+    if (window.history.replaceState) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
     // Auto-dismiss the banner after 4 seconds with a fade
     setTimeout(() => {
       adminBanner.classList.add("banner-fade-out");
