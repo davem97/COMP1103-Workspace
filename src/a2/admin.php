@@ -49,16 +49,16 @@ if (!isset($_SESSION['logged_in'])) {
     </header>
 
     <nav class="main-navigation">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="adoption.php">Available Pets</a></li>
-        <li><a href="volunteer.html">Volunteer</a></li>
-        <li><a href="donate.php">Donate</a></li>
-        <li><a href="feedback.php">Feedback</a></li>
-        <li><a href="application.php">Apply to Adopt</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="admin.php">Admin Portal</a></li>
-      </ul>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="adoption.php">Available Pets</a></li>
+            <li><a href="volunteer.php">Volunteer</a></li>
+            <li><a href="donate.php">Donate</a></li>
+            <li><a href="feedback.php">Feedback</a></li>
+            <li><a href="application.php">Apply to Adopt</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="admin.php">Admin Portal</a></li>
+        </ul>
     </nav>
 
     <main>
