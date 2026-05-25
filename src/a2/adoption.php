@@ -50,7 +50,8 @@ if ($searchTerm !== '') {
                 $pet['breed'] . ' ' .
                 $pet['gender'] . ' ' .
                 $pet['age'] . ' ' .
-                ($pet['colour'] ?? '')
+                ($pet['colour'] ?? '') . ' ' .
+                ($pet['size'] ?? '')
         );
 
         foreach ($keywords as $word) {
