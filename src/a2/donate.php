@@ -26,17 +26,17 @@
     <h1 class="visually-hidden">Happy Paws Animal Shelter</h1>
   </header>
   <nav class="main-navigation">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="adoption.html">Available Pets</a></li>
-      <li><a href="volunteer.html">Available Pets</a></li>
-      <li><a href="donate.php">Donate</a></li>
-      <li><a href="feedback.php">Feedback</a></li>
-      <li><a href="application.html">Apply to Adopt</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="admin.html">Admin Portal</a></li>
-    </ul>
-  </nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="adoption.php">Available Pets</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="donate.php">Donate</a></li>
+            <li><a href="feedback.php">Feedback</a></li>
+            <li><a href="application.html">Apply to Adopt</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="admin.html">Admin Portal</a></li>
+        </ul>
+    </nav>
   <main>
     <h2>Support Our Mission</h2>
     <p class="donation-disclaimer"><em>Note: This is a prototype for a student project. No real payments are
