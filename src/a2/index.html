@@ -20,12 +20,13 @@
             </div>
 
             <button class="nav-btn donate" onclick="location.href='donate.php'">Donate</button>
+            <!-- Make the donate button clickable -->
         </nav>
 
         <h1 class="visually-hidden">Happy Paws Animal Shelter</h1>
     </header>
 
-    <nav class="main-navigation">
+    <nav class="main-navigation"> <!-- All of the links that are clickable -->
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="adoption.php">Available Pets</a></li>
@@ -42,6 +43,7 @@
         <img src="images/homepage-hero.png" alt="Happy dog and cat at Happy Paws Animal Shelter"
             class="main-hero-img" />
 
+        <!-- A search form that sends user input to the adoption page using the GET method -->
         <div class="search-section">
             <h3>Search for your new best friend:</h3>
             <form action="adoption.php" method="GET" class="search-container">
@@ -60,6 +62,7 @@
             </p>
         </section>
 
+        <!-- An image slideshow with left and right arrows navigating through multiple images -->
         <section class="slideshow-area">
             <div class="slideshow-container">
                 <button class="ss-btn prev" aria-label="Previous slide">
@@ -95,6 +98,7 @@
         </section>
     </main>
 
+    <!-- Footer section that has multiple classes which are styled in style.css and appears at the bottom of the page -->
     <footer>
         <hr />
         <div class="footer-content">
@@ -127,6 +131,7 @@
             <p class="copyright">© 2026 Happy Paws Animal Shelter</p>
         </div>
     </footer>
+    <!-- <script> is required in order for JS to work -->
     <script src="scripts/script.js"></script>
 </body>
 

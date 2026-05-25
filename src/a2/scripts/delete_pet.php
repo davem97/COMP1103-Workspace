@@ -1,7 +1,9 @@
 <?php
 session_start();
 if (!isset($_SESSION['logged_in'])) { header("Location: ../admin.php"); exit(); }
+/* Only allow access if the admin is logged in, otherwise redirect to login page */
 
+// Load all pet data from the JSON file
 $petsFile = __DIR__ . '/../data/pets.json';
 $idToDelete = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $deletedName = '';
@@ -9,7 +11,7 @@ $deletedName = '';
 if ($idToDelete > 0 && file_exists($petsFile)) {
     $pets = json_decode(file_get_contents($petsFile), true);
 
-    // Find the pet being deleted so we can use its name in the banner
+    // Find the pet being deleted so we can show its name in the success message
     foreach ($pets as $pet) {
         if ($pet['id'] === $idToDelete) {
             $deletedName = $pet['name'];
@@ -17,7 +19,7 @@ if ($idToDelete > 0 && file_exists($petsFile)) {
         }
     }
 
-    // Filter out the pet to delete
+    // Remove the selected pet from the list
     $updatedPets = array_filter($pets, function($pet) use ($idToDelete) {
         return $pet['id'] !== $idToDelete;
     });
@@ -26,6 +28,6 @@ if ($idToDelete > 0 && file_exists($petsFile)) {
     file_put_contents($petsFile, json_encode($updatedPets, JSON_PRETTY_PRINT));
 }
 
-// Redirect with status and pet name
+// Redirect back to admin page with status + deleted pet name
 header("Location: ../admin.php?status=deleted&name=" . urlencode($deletedName));
 exit;

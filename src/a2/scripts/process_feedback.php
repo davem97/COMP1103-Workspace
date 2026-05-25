@@ -1,20 +1,19 @@
 <?php
+
 /**
  * process_feedback.php
- * Handles the submission of the feedback form, sanitizes input, 
- * and persists data to a JSON file.
+ * Handles feedback form submission and saves data to a JSON file
  */
 
-// 1. Only allow POST requests
+// Only allow POST requests
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // 2. SANITIZATION (Security Consideration)
-    // strip_tags and htmlspecialchars prevent Cross-Site Scripting (XSS)
+    // Clean user input to prevent XSS attacks
     $fullname = htmlspecialchars(strip_tags($_POST['fullname']));
     $email    = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $message  = htmlspecialchars(strip_tags($_POST['message']));
 
-    // 3. Create the data object
+    // Create a feedback entry object
     $newEntry = [
         "id"        => uniqid(), // Gives every feedback a unique ID (useful for Admin Portal later)
         "fullname"  => $fullname,
@@ -23,11 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "timestamp" => date("Y-m-d H:i:s")
     ];
 
-    // 4. PERSISTENCE (JSON Implementation)
-    // Use __DIR__ to find the file relative to this script
+    // Path to feedback storage file
     $filePath = __DIR__ . '/feedback.json';
 
-    // Get current contents or start with an empty array if file is missing/empty
+    // Load existing feedback or start with empty array
     if (file_exists($filePath)) {
         $jsonData = file_get_contents($filePath);
         $dataList = json_decode($jsonData, true);
@@ -35,24 +33,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $dataList = [];
     }
 
-    // Ensure $dataList is an array (in case the file was empty)
+    // Ensure data is always an array before adding new entry
     if (!is_array($dataList)) {
         $dataList = [];
     }
 
-    // Add the new entry to the array
+    // Add new feedback and save back to file
     $dataList[] = $newEntry;
 
     // Convert back to JSON and save
-    // JSON_PRETTY_PRINT makes it easy for your teacher to read the file manually
     file_put_contents($filePath, json_encode($dataList, JSON_PRETTY_PRINT));
 
-    // 5. REDIRECT
-    // Move up one directory back to the main feedback page
+     // Redirect back to feedback page with success status
     header("Location: ../feedback.php?status=success");
     exit();
 } else {
-    // If someone tries to access this file directly without posting, send them home
+    // Block direct access to this script
     header("Location: ../index.html");
     exit();
 }

@@ -62,7 +62,9 @@ foreach ($pets as $p) {
     </nav>
 
     <main>
+        <!-- Show either a "not found" message or the full pet profile depending on whether the pet exists !-->
         <?php if ($pet === null): ?>
+            <!-- Message shown when the requested pet ID does not exist -->
             <section class="pet-profile">
                 <h2>Pet Not Found</h2>
                 <p>Sorry, we couldn't find that pet. They may have already found their forever home!</p>
@@ -89,6 +91,7 @@ foreach ($pets as $p) {
                     </div>
                 </div>
 
+                <!-- Extra pet information (only shown if it exists in the data) -->
                 <section class="pet-additional-info">
                     <h3>Additional Information</h3>
 
@@ -128,6 +131,7 @@ foreach ($pets as $p) {
 
                 <p id="share-feedback" class="share-feedback" aria-live="polite"></p>
 
+                <!-- Displays additional pet images if they are available -->
                 <?php if (!empty($pet['extraImages']) && is_array($pet['extraImages'])): ?>
                     <div class="pet-extra-images">
                         <?php foreach ($pet['extraImages'] as $extraImg): ?>

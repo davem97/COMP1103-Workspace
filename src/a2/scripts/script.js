@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- 1. SLIDESHOW LOGIC ---
+  // --- SLIDESHOW ---
   const slides = document.querySelectorAll(".slide-item");
   const nextBtn = document.querySelector(".next");
   const prevBtn = document.querySelector(".prev");
   let currentSlide = 0;
 
-  // Safety Check: Only run slideshow code if the buttons actually exist on the page
+  // Only run slideshow if elements exist on the page
   if (nextBtn && prevBtn && slides.length > 0) {
+    // Switches active slide based on index
     function showSlide(index) {
       slides[currentSlide].classList.remove("active");
       currentSlide = (index + slides.length) % slides.length;
@@ -17,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     prevBtn.addEventListener("click", () => showSlide(currentSlide - 1));
   }
 
-  // --- 2. MENU TOGGLE LOGIC ---
+  // --- MOBILE NAV MENU TOGGLE ---
   const menuToggle = document.getElementById("menu-toggle");
   const mainNav = document.querySelector(".main-navigation");
 
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- 3. FILTER TOGGLE LOGIC (NEW) ---
+  // --- FILTER DROPDOWN TOGGLE ---
   const filterToggle = document.getElementById("filter-toggle");
   const filterDropdown = document.getElementById("filter-dropdown");
 
@@ -37,62 +38,67 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- 4. GLOBAL CLICK-OUTSIDE LOGIC ---
+  // Close menus when clicking outside the menu box area
   document.addEventListener("click", function (event) {
-    // Handle Navigation Menu Close
+    // Handle navigation menu closing
     if (mainNav && mainNav.classList.contains("show")) {
       if (!mainNav.contains(event.target) && event.target !== menuToggle) {
         mainNav.classList.remove("show");
       }
     }
 
-    // Handle Filter Dropdown Close (NEW)
+    // Close filter dropdown if clicking outside
     if (filterDropdown && filterDropdown.classList.contains("show")) {
-      if (!filterDropdown.contains(event.target) && event.target !== filterToggle) {
+      if (
+        !filterDropdown.contains(event.target) &&
+        event.target !== filterToggle
+      ) {
         filterDropdown.classList.remove("show");
       }
     }
   });
 
-  // --- 5. DONATION FORM VALIDATION (ACTIVE JS) ---
-  const donationForm = document.querySelector('form[action="scripts/process_donation.php"]');
+  // --- DONATION FORM VALIDATION ---
+  const donationForm = document.querySelector(
+    'form[action="scripts/process_donation.php"]',
+  );
   const amountInput = document.getElementById("amount");
 
   if (donationForm && amountInput) {
     donationForm.addEventListener("submit", function (event) {
       const amountValue = parseFloat(amountInput.value);
 
-      // Check if amount is 0, negative, or not a number
+      // Block invalid donation amounts (0, negative, or not a number)
       if (isNaN(amountValue) || amountValue <= 0) {
-        // 1. Stop the form from submitting to PHP
+        // Stop the form from submitting to PHP
         event.preventDefault();
 
-        // 2. Visual Feedback: Make the border red and thick
+        // Make the border red and thick
         amountInput.style.border = "2px solid #e74c3c";
         amountInput.style.backgroundColor = "#fdecea";
 
-        // 3. Inform the user
+        // Inform the user
         alert("Invalid Donation: Please enter an amount greater than $0.");
 
-        // 4. Put the cursor back in the box for them
+        // Put the cursor back in the box for them
         amountInput.focus();
       } else {
-        // Reset styles if they fix the mistake and try again
+        // Reset styling if input becomes valid again
         amountInput.style.border = "";
         amountInput.style.backgroundColor = "";
       }
     });
   }
 
-  // --- 6. ADMIN BANNER AUTO-DISMISS + ROW HIGHLIGHT ---
+  // --- ADMIN SUCCESS BANNER ---
   const adminBanner = document.getElementById("admin-banner");
 
   if (adminBanner) {
-    // Clean the URL so refreshing the page doesn't re-trigger the banner
+    // Clean the URL so refreshing the page doesn't re-trigger the banner. This was an optional choice.
     if (window.history.replaceState) {
       window.history.replaceState({}, document.title, window.location.pathname);
     }
-    // Auto-dismiss the banner after 4 seconds with a fade
+    // Automatically dismiss the banner after 4 seconds with a fade
     setTimeout(() => {
       adminBanner.classList.add("banner-fade-out");
       // After fade animation completes, hide it entirely
@@ -109,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (petName) {
         const rows = document.querySelectorAll("tbody tr[data-pet-name]");
-        rows.forEach(row => {
+        rows.forEach((row) => {
           if (row.dataset.petName === petName) {
             row.classList.add("row-highlight");
           }
@@ -118,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // --- 7. VOLUNTEER PAGE SEARCH + FILTER ---
+  // --- VOLUNTEER PAGE SEARCH and FILTER ---
   const volunteerSearch = document.getElementById("volunteer-search");
   const volunteerSearchBtn = document.getElementById("volunteer-search-btn");
   const volunteerApplyBtn = document.getElementById("volunteer-apply-filters");
@@ -127,13 +133,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Only run on the volunteer page (where these elements exist)
   if (volunteerCards.length > 0) {
-
     function filterVolunteerJobs() {
       const searchText = volunteerSearch.value.toLowerCase().trim();
 
       // Build an array of all checked filter values
       const checkedCategories = [];
-      volunteerFilters.forEach(cb => {
+      volunteerFilters.forEach((cb) => {
         if (cb.checked) {
           checkedCategories.push(cb.value);
         }
@@ -141,19 +146,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let visibleCount = 0;
 
-      volunteerCards.forEach(card => {
+      volunteerCards.forEach((card) => {
         // Get the text content we want to search through
-        const title = card.querySelector(".volunteer-job-title").textContent.toLowerCase();
-        const body = card.querySelector(".volunteer-job-body").textContent.toLowerCase();
+        const title = card
+          .querySelector(".volunteer-job-title")
+          .textContent.toLowerCase();
+        const body = card
+          .querySelector(".volunteer-job-body")
+          .textContent.toLowerCase();
         const category = card.dataset.category || "";
 
-        // Check 1: does it match the search text?
+        // Check 1 if it does or doesn't match the search text
         let matchesSearch = true;
         if (searchText !== "") {
-          matchesSearch = title.includes(searchText) || body.includes(searchText);
+          matchesSearch =
+            title.includes(searchText) || body.includes(searchText);
         }
 
-        // Check 2: does it match any checked filter? (OR logic)
+        // Check to see if it does or doesn't match any checked filter or even logic
         let matchesFilter = true;
         if (checkedCategories.length > 0) {
           matchesFilter = false;
@@ -181,8 +191,11 @@ document.addEventListener("DOMContentLoaded", () => {
           noResultsMsg = document.createElement("p");
           noResultsMsg.id = "volunteer-no-results";
           noResultsMsg.className = "volunteer-no-results";
-          noResultsMsg.textContent = "No volunteer roles matched your search or filters.";
-          document.querySelector(".volunteer-jobs-container").appendChild(noResultsMsg);
+          noResultsMsg.textContent =
+            "No volunteer roles matched your search or filters.";
+          document
+            .querySelector(".volunteer-jobs-container")
+            .appendChild(noResultsMsg);
         }
       } else {
         if (noResultsMsg) {
@@ -201,19 +214,21 @@ document.addEventListener("DOMContentLoaded", () => {
       volunteerApplyBtn.addEventListener("click", filterVolunteerJobs);
     }
 
-    // Also filter live as user types (this is the 'input' event from T9)
+    // Also filter live as user types
     if (volunteerSearch) {
       volunteerSearch.addEventListener("input", filterVolunteerJobs);
     }
 
     // Clear all filters button
-    const volunteerClearBtn = document.getElementById("volunteer-clear-filters");
+    const volunteerClearBtn = document.getElementById(
+      "volunteer-clear-filters",
+    );
     if (volunteerClearBtn) {
       volunteerClearBtn.addEventListener("click", () => {
         // Clear the search input
         volunteerSearch.value = "";
         // Uncheck all filter checkboxes
-        volunteerFilters.forEach(cb => cb.checked = false);
+        volunteerFilters.forEach((cb) => (cb.checked = false));
         // Re-run the filter (which will now show everything)
         filterVolunteerJobs();
       });

@@ -1,9 +1,10 @@
-/* =========================================
+/* 
    1. GLOBAL STYLES
-   ========================================= */
-/* Apply this to the top of your CSS */
+*/
+
 * {
     box-sizing: border-box;
+    /* Ensures padding/borders don't increase element width (prevents layout overflow bugs) */
 }
 
 body {
@@ -22,13 +23,13 @@ h1,
 h2,
 h3 {
     font-family: Arial, sans-serif;
-    /* Fixed for better browser support */
+    /* Unified heading font for consistency across all page sections */
     color: #2c3e50;
     margin-bottom: 10px;
 }
 
-/* Helper to hide text from users but keep it for Google (SEO) */
 .visually-hidden {
+    /* Keeps content readable by screen readers but invisible visually (SEO + accessibility) */
     position: absolute;
     width: 1px;
     height: 1px;
@@ -39,9 +40,9 @@ h3 {
     border: 0;
 }
 
-/* =========================================
+/* 
    2. HEADER & TOP NAVIGATION (Flexbox)
-   ========================================= */
+*/
 header {
     background-color: #2c3e50;
     color: #fff;
@@ -84,9 +85,9 @@ header {
     background-color: #d9534f;
 }
 
-/* =========================================
+/*
    3. MAIN NAVIGATION LINKS (Home, Pets, etc.)
-   ========================================= */
+*/
 .main-navigation {
     background-color: #ecf0f1;
     padding: 10px 0;
@@ -100,11 +101,11 @@ header {
     padding: 0 20px;
     /* Adds a little safety padding on the sides */
     display: flex;
-    /* Turns on the Flexbox magic */
+    /* Turns on Flexbox */
     justify-content: space-between;
     /* Pushes links to the edges with equal gaps between */
     max-width: 1200px;
-    /* Keeps the links aligned with your 'main' content width */
+    /* Keeps the links aligned with 'main' content width */
 }
 
 .main-navigation a {
@@ -120,9 +121,9 @@ header {
     color: #e67e22;
 }
 
-/* =========================================
+/*
    4. MAIN CONTENT & FOOTER
-   ========================================= */
+*/
 main {
     padding: 40px 20px;
     margin: 0 auto;
@@ -143,7 +144,7 @@ main {
 footer {
     text-align: center;
     padding: 40px 20px;
-    /* This is a professional mid-tone blue */
+    /* This is a mid-tone blue */
     background-color: #4682b4;
     /* Changing text to white for contrast */
     color: #ffffff;
@@ -166,7 +167,6 @@ footer hr {
 }
 
 .footer-section {
-    /* Decreased from 25px to 15px to bring sections closer together */
     margin-bottom: 15px;
     font-style: normal;
 }
@@ -177,10 +177,8 @@ footer hr {
 }
 
 .footer-logo {
-    /* Increased from 100px to 115px (15% increase) */
     width: 120px;
     height: auto;
-    /* Decreased margin below the logo to bring the "Call" section closer */
     margin-bottom: 20px;
 }
 
@@ -193,7 +191,7 @@ footer hr {
 
 .feedback-link:hover {
     color: #e67e22;
-    /* Keep your orange hover for consistency */
+    /* Keep the orange hover for consistency */
 }
 
 /* Lighten the copyright text slightly so it doesn't compete with the main info */
@@ -203,9 +201,9 @@ footer hr {
     color: #d1d1d1;
 }
 
-/* =========================================
+/*
    5. FORM STYLING
-   ========================================= */
+*/
 form {
     background-color: #fff;
     padding: 30px;
@@ -237,7 +235,7 @@ label {
 
 input[type="text"],
 input[type="email"],
-input[type="number"], /* Add this line! */
+input[type="number"],
 input[type="tel"],
 select,
 textarea {
@@ -268,9 +266,9 @@ input[type="submit"]:hover {
     background-color: #219150;
 }
 
-/* =========================================
+/*
    6. TABLE STYLING
-   ========================================= */
+*/
 table {
     width: 100%;
     border-collapse: collapse;
@@ -304,7 +302,6 @@ tr:hover {
     align-items: center;
     /* Aligns vertically */
     gap: 10px;
-    /* This creates the "small gap" you requested */
     margin: 20px 0;
     /* Space above (below image) and below (above text) */
 }
@@ -316,7 +313,7 @@ tr:hover {
     max-width: 60%;
     /* Ensures it doesn't break on small mobile screens */
     margin-bottom: 0;
-    /* Overrides your general input margin to keep it level with button */
+    /* Overrides the general input margin to keep it level with button */
 }
 
 /* Styling the Search button */
@@ -338,7 +335,6 @@ tr:hover {
 .search-section {
     text-align: center;
     margin-top: 10px;
-    /* Reduced from 30px to bring it closer to the image */
 }
 
 .search-section h3 {
@@ -352,7 +348,7 @@ tr:hover {
 
 .welcome-message {
     max-width: 800px;
-    /* Stops text from stretching too far (easier to read) */
+    /* Stops text from stretching too far */
     margin: 40px auto;
     /* Centers the whole block and adds space above/below */
     text-align: center;
@@ -365,30 +361,26 @@ tr:hover {
 
 .welcome-message a {
     color: #0056b3;
-    /* Use your brand blue */
+    /* Use the consistent (same) blue */
     text-decoration: underline;
     font-weight: bold;
 }
 
 .welcome-message a:hover {
     color: #e67e22;
-    /* Your hover orange for consistency */
+    /* hover orange for consistency */
 }
 
-/* 1. The Outer Area - Width reduced by 15% */
 .slideshow-area {
     width: 100%;
     max-width: 680px;
-    /* Your 15% reduced size */
     margin: 20px auto;
-    /* Removed extra padding here to prevent overflow */
 }
 
 .slideshow-container {
     position: relative;
     width: 100%;
     height: 500px;
-    /* Increased from 400px */
     background-color: #ddd;
     border-radius: 8px;
     overflow: hidden;
@@ -402,9 +394,7 @@ tr:hover {
     /* Centers vertically */
     transform: translateY(-50%);
     width: 40px;
-    /* Width of your rectangle */
     height: 100px;
-    /* Height of your rectangle */
     background-color: rgba(44, 62, 80, 0.7);
     /* Semi-transparent navy */
     color: white;
@@ -431,7 +421,7 @@ tr:hover {
 
 .ss-btn:hover {
     background-color: rgba(230, 126, 34, 0.9);
-    /* Your orange hover color */
+    /* orange hover color */
 }
 
 /* 4. Temporary Photo Placeholder Style */
@@ -451,7 +441,6 @@ tr:hover {
     width: 100%;
     height: 100%;
     position: relative;
-    /* This prepares the container for the text overlay later */
 }
 
 /* Only show the slide that has the 'active' class */
@@ -514,9 +503,9 @@ main h2 {
     color: #2c3e50;
 }
 
-/* =========================================
+/*
    7. RESPONSIVE MEDIA QUERIES
-   ========================================= */
+*/
 
 @media (max-width: 768px) {
 
@@ -567,14 +556,12 @@ main h2 {
 
 /* Update the image size */
 .shelter_img {
-    /* Increasing width slightly more to achieve that 15% height boost */
     width: 48%;
     height: auto;
     /* This ensures the height grows perfectly with the width */
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     display: block;
-    /* Good practice to prevent weird spacing issues */
 }
 
 /* Target H3 tags specifically inside the main content area */
@@ -584,7 +571,7 @@ main h3 {
     font-weight: bold;
     /* Ensures it is bold */
     color: #2c3e50;
-    /* Keeps your navy blue brand color */
+    /* Keeps the navy blue colour again */
     margin-top: 25px;
     /* Adds a bit of room above headers */
 }
@@ -592,15 +579,13 @@ main h3 {
 /* Target paragraphs specifically inside the main content area */
 main p {
     font-size: 1.15rem;
-    /* Makes the body text feel more readable/inviting */
     line-height: 1.8;
-    /* Increases "breathing room" between lines */
     margin-bottom: 20px;
 }
 
-/* =========================================
+/* 
    8. FILTER DROPDOWN STYLING
-   ========================================= */
+*/
 
 .filter-wrapper {
     position: relative; /* Keeps the dropdown anchored to this spot */
@@ -692,13 +677,11 @@ main p {
     }
 }
 
-/* 1. Change 950px to 1150px */
 @media (max-width: 1150px) {
 
     .main-navigation {
         display: none;
         position: absolute;
-        /* Adjust 'top' if the menu overlaps your logo bar or sits too low */
         top: 70px;
         left: 0;
         width: 250px;
@@ -730,21 +713,20 @@ main p {
     }
 }
 
-/* 2. Change 951px to 1151px */
 @media (min-width: 1151px) {
     #menu-toggle {
         display: none;
     }
 }
 
-/* =========================================
+/*
    9. PET ADOPTION GRID
-   ========================================= */
+*/
 
 .pet-display-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 animals per row */
-    gap: 90px; /* Increased to 3x the original 30px */
+    gap: 90px;
     margin-top: 40px;
 }
 
@@ -778,7 +760,7 @@ main p {
     background-color: #7f8c8d; /* Same grey as filter box */
     color: white;
     padding: 20px;
-    text-align: left; /* Aligns text like your drawing */
+    text-align: left; 
     border-radius: 0 0 8px 8px; /* Rounds only the bottom corners */
 }
 
@@ -806,9 +788,9 @@ main p {
     background-color: #e67e22; /* Consistent orange hover */
 }
 
-/* =========================================
+/* 
    10. RESPONSIVE MEDIA QUERIES (PET GRID)
-   ========================================= */
+*/
 
 /* Tablets (2 columns) */
 @media (max-width: 992px) {
@@ -829,9 +811,9 @@ main p {
     }
 }
 
-/* =========================================
+/* 
    11. PET PROFILE PAGE
-   ========================================= */
+*/
 
 .pet-profile {
     max-width: 900px;
@@ -920,9 +902,9 @@ main p {
     text-align: center;
 }
 
-/* =========================================
+/*
    12. PET PROFILE - ADDITIONAL INFO
-   ========================================= */
+*/
 
 .pet-additional-info {
     max-width: 600px; /* Matches the image width for visual alignment */
@@ -952,7 +934,7 @@ main p {
 
 .more-info-heading {
     font-weight: bold;
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0.5rem !important; /* Probably not ideal to use !important but I will here */
 }
 
 .more-info-list {
@@ -967,9 +949,9 @@ main p {
     color: #333;
 }
 
-/* =========================================
+/*
    13. RESPONSIVE - PET PROFILE PAGE
-   ========================================= */
+*/
 
 /* Large desktops / 2K monitors - bigger image, more breathing room */
 @media (min-width: 1400px) {
@@ -1084,9 +1066,9 @@ main p {
     }
 }
 
-/* =========================================
+/* 
    14. PET PROFILE - EXTRA IMAGES
-   ========================================= */
+ */
 
 .pet-extra-images {
     display: flex;
@@ -1130,9 +1112,9 @@ main p {
     }
 }
 
-/* =========================================
+/* 
    15. ADMIN BANNERS & FEEDBACK
-   ========================================= */
+*/
 
 .admin-banner {
     max-width: 700px;
@@ -1169,7 +1151,7 @@ main p {
     transform: translateY(-10px);
 }
 
-/* Highlight for newly-added row (auto-fades thanks to CSS animation) */
+/* Highlight for newly-added row */
 @keyframes rowFlash {
     0%   { background-color: #d4edda; }
     100% { background-color: transparent; }
@@ -1193,9 +1175,9 @@ main p {
     font-size: 1.05rem;
 }
 
-/* =========================================
+/*
    16. RESPONSIVE - ADMIN TABLE
-   ========================================= */
+*/
 
 @media (max-width: 768px) {
     /* Smaller padding inside table cells so they don't overflow */
@@ -1204,7 +1186,7 @@ main p {
         font-size: 0.95rem;
     }
 
-    /* Stack the admin action buttons on small screens */
+    /* Stacking the admin action buttons on small screens */
     .admin-actions {
         display: flex;
         flex-direction: column;
@@ -1241,9 +1223,9 @@ main p {
     }
 }
 
-/* =========================================
+/* 
    17. RESPONSIVE - LOGIN PAGE SPACING
-   ========================================= */
+*/
 
 /* On short pages (login screen), add some breathing room
    above the form so it doesn't hug the top nav */
@@ -1253,11 +1235,11 @@ main p {
     }
 }
 
-/* =========================================
+/*
    18. VOLUNTEER PAGE
-   ========================================= */
+*/
 
-/* Single centered section (e.g. "Our Purpose") */
+/* Single centered section (like "Our Purpose") */
 .volunteer-section {
     max-width: 700px;
     margin: 0 auto;
@@ -1312,9 +1294,9 @@ main p {
     margin: 0; /* Override the auto margin since flex handles spacing */
 }
 
-/* =========================================
+/*
    19. RESPONSIVE - VOLUNTEER PAGE
-   ========================================= */
+*/
 
 /* Large desktops / 2K monitors */
 @media (min-width: 1400px) {
@@ -1424,7 +1406,7 @@ form.search-container {
 
 /* Each job card */
 .volunteer-job-card {
-    background-color: #7f8c8d; /* Single dark grey (matches your filter dropdown) */
+    background-color: #7f8c8d; /* Single dark grey (matches my filter dropdown) */
     color: white;
     border-radius: 8px;
     padding: 1.5rem;
@@ -1536,9 +1518,9 @@ form.search-container {
     background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* =========================================
+/* 
    20. VOLUNTEER PURPOSE - SIDE IMAGES
-   ========================================= */
+*/
 
 /* Break out of main's 1200px max-width so images can reach the page edges */
 .purpose-with-images {
@@ -1546,7 +1528,7 @@ form.search-container {
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    /* These three properties let us escape the parent <main>'s width limit */
+    /* These three properties to escape the parent <main>'s width limit */
     width: calc(100vw - 40px); /* viewport width minus a small safe margin */
     position: relative;
     left: 50%;
@@ -1557,7 +1539,7 @@ form.search-container {
 }
 
 .purpose-side-img {
-    width: 316px; /* 15% larger than 275px */
+    width: 316px;
     height: 316px;
     object-fit: cover;
     border-radius: 12px;
@@ -1570,13 +1552,13 @@ form.search-container {
     max-width: 700px;
 }
 
-/* =========================================
+/* 
    RESPONSIVE - HIDE SIDE IMAGES ON SMALLER SCREENS
-   ========================================= */
+*/
 
 @media (max-width: 1150px) {
     .purpose-side-img {
-        width: 259px; /* 15% larger than 225px */
+        width: 259px;
         height: 259px;
     }
 
@@ -1592,7 +1574,7 @@ form.search-container {
     }
 
     .purpose-with-images {
-        /* Reset the breakout when images are hidden — no need anymore */
+        /* Reset the breakout when images are hidden */
         width: auto;
         left: auto;
         transform: none;
@@ -1603,18 +1585,17 @@ form.search-container {
     }
 }
 
-/* =========================================
+/*
    21. FLOATING TOP-OF-PAGE BANNER
-   ========================================= */
+*/
 
-/* Sits over the top of the page without pushing content down.
-   Used for transient confirmation messages (e.g. enquiry submitted) */
+/* Sits over the top of the page without pushing content down. */
 .floating-banner {
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2000; /* Above everything (nav is z-index: 1000) */
+    z-index: 2000;
     max-width: 600px;
     width: 90%;
     padding: 1rem 1.5rem;

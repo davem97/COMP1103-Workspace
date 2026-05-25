@@ -1,13 +1,13 @@
 <?php
-// Process volunteer enquiry submissions and save them to enquiries.json
+// Handles volunteer enquiry form submission and saves it to enquiries.json
 
-// Only handle POST submissions; everything else gets redirected away
+// Only allow form submissions via POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: ../volunteer.php");
     exit();
 }
 
-// Sanitise all user input to prevent XSS
+// Clean user input and set default values where needed
 $fullName = htmlspecialchars(trim($_POST['fullName'] ?? ''));
 $email    = htmlspecialchars(trim($_POST['email'] ?? ''));
 $phone    = htmlspecialchars(trim($_POST['phone'] ?? ''));
@@ -25,7 +25,7 @@ $newEnquiry = [
     "date"     => date("Y-m-d H:i:s")
 ];
 
-// Load existing enquiries from JSON file
+// Load existing enquiries (or start with empty array if file is missing/corrupt)
 $enquiriesFile = __DIR__ . '/../data/enquiries.json';
 $enquiries = [];
 if (file_exists($enquiriesFile)) {
@@ -35,11 +35,11 @@ if (file_exists($enquiriesFile)) {
     }
 }
 
-// Append the new enquiry and save back to file
+// Add new enquiry and save updated list
 $enquiries[] = $newEnquiry;
 file_put_contents($enquiriesFile, json_encode($enquiries, JSON_PRETTY_PRINT));
 
-// Redirect to a thank-you message on the volunteer page
+// Redirect back to volunteer page with success message
 header("Location: ../volunteer.php?enquiry=success&name=" . urlencode($fullName));
 exit();
 ?>

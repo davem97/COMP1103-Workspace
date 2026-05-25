@@ -1,16 +1,16 @@
 <?php
-// 1. Check if the form was actually submitted
+// Only run this script if the form was submitted via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // 2. SANITIZATION (The "Security" Requirement)
-    // We "scrub" the data to prevent malicious code injection
+    // Clean user input to remove unsafe or unwanted characters
+    // This helps prevent basic injection / malformed data
     $firstname = htmlspecialchars(strip_tags($_POST['firstname']));
     $email     = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $amount    = filter_var($_POST['amount'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     $method    = htmlspecialchars(strip_tags($_POST['paymentMethod']));
     $message   = htmlspecialchars(strip_tags($_POST['message']));
 
-    // 3. Create the data bundle
+    // Create the data bundle
     $newDonation = [
         "firstname" => $firstname,
         "email"     => $email,
@@ -20,14 +20,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "date"      => date("Y-m-d H:i:s") // Adds a timestamp!
     ];
 
-    // 4. PERSISTENCE (Saving to JSON)
+    // Persistence by saving to json file
     $file = __DIR__ . '/donations.json';
 
     // Get existing data from the file
     $currentData = file_get_contents($file);
     $arrayData = json_decode($currentData, true);
 
-    // If the file was empty or broken, start a fresh array
+    // Ensure we are working with an array before adding new data
     if (!is_array($arrayData)) {
         $arrayData = [];
     }
@@ -35,12 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Add the new donation to the list
     $arrayData[] = $newDonation;
 
-    // Save the updated list back to the file
+    // Save updated donation list back into the JSON file
     file_put_contents($file, json_encode($arrayData, JSON_PRETTY_PRINT));
 
-    // 5. Redirect the user back to a "Thank You" message
-    // For now, let's just send them back to the donation page
+    // Redirect user back to donation page with success message
     header("Location: ../donate.php?status=success");
     exit();
 }
-?>

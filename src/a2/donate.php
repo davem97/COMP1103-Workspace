@@ -27,23 +27,24 @@
   </header>
 
   <nav class="main-navigation">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="adoption.php">Available Pets</a></li>
-            <li><a href="volunteer.php">Volunteer</a></li>
-            <li><a href="donate.php">Donate</a></li>
-            <li><a href="feedback.php">Feedback</a></li>
-            <li><a href="application.php">Apply to Adopt</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="admin.php">Admin Portal</a></li>
-        </ul>
-    </nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="adoption.php">Available Pets</a></li>
+      <li><a href="volunteer.php">Volunteer</a></li>
+      <li><a href="donate.php">Donate</a></li>
+      <li><a href="feedback.php">Feedback</a></li>
+      <li><a href="application.php">Apply to Adopt</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="admin.php">Admin Portal</a></li>
+    </ul>
+  </nav>
 
   <main>
     <h2>Support Our Mission</h2>
     <p class="donation-disclaimer"><em>Note: This is a prototype for a student project. No real payments are
         processed.</em></p>
 
+    <!-- Shows a success message if the donation was successfully submitted (via URL status=success) -->
     <?php if (isset($_GET['status']) && $_GET['status'] == 'success'): ?>
       <div
         style="background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; text-align: center; margin-bottom: 20px;">

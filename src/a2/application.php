@@ -43,19 +43,22 @@ $prefillPetId   = $_GET['id'] ?? '';
     <main>
         <h2>Apply to Adopt</h2>
 
+        <!-- Show success message after form is submitted successfully. "===" is used to show that the value must BE 'success' !-->
         <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
             <div style="background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; text-align: center; margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
                 <strong>&#10003; Thank you!</strong> Your application has been submitted. We'll be in touch soon.
             </div>
         <?php endif; ?>
-
+        <!-- If a pet name is provided, show which pet the user is applying for via "$prefillPetName" !-->
         <?php if ($prefillPetName !== ''): ?>
             <p class="application-prefill-note">
                 You're applying to adopt <strong><?= htmlspecialchars($prefillPetName) ?></strong>.
             </p>
         <?php endif; ?>
 
+        <!-- Sends form data to the server using POST when the form is submitted -->
         <form method="POST" action="scripts/process_application.php" id="application-form">
+            <!-- Using <fieldset> as common practice for information such as details -->
             <fieldset>
                 <legend>Your Details</legend>
                 <label for="firstname">First Name:</label>

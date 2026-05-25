@@ -3,8 +3,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: ../application.php");
     exit();
 }
+/* Only allow this script to run from a form submission (POST request) */
 
-// Sanitize all inputs
+// Get form inputs and clean them to prevent unsafe HTML/script injection
 $firstname     = htmlspecialchars($_POST['firstname']);
 $surname       = htmlspecialchars($_POST['surname']);
 $email         = htmlspecialchars($_POST['email']);
@@ -15,7 +16,7 @@ $petExperience = htmlspecialchars($_POST['petExperience'] ?? '');
 $petName       = htmlspecialchars($_POST['petName'] ?? '');
 $petId         = htmlspecialchars($_POST['petId'] ?? '');
 
-// Build the new application
+// Build a single application record to store in JSON
 $newApplication = [
     "firstname"     => $firstname,
     "surname"       => $surname,
@@ -29,10 +30,10 @@ $newApplication = [
     "date"          => date("Y-m-d H:i:s")
 ];
 
-// Save to applications.json
+// Path to applications storage file
 $file = __DIR__ . '/../data/applications.json';
 
-// Load existing applications
+// Load existing applications (or start with empty list if file doesn't exist or is invalid)
 $applications = [];
 if (file_exists($file)) {
     $applications = json_decode(file_get_contents($file), true);
@@ -44,6 +45,6 @@ if (file_exists($file)) {
 $applications[] = $newApplication;
 file_put_contents($file, json_encode($applications, JSON_PRETTY_PRINT));
 
-// Redirect back with success
+// Add new application, save to file, then redirect with success message
 header("Location: ../application.php?status=success");
 exit();

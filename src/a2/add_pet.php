@@ -5,6 +5,7 @@ if (!isset($_SESSION['logged_in'])) {
     exit();
 }
 ?>
+<!-- Starts session and blocks access unless the user is logged in (redirects to admin.php if not) -->
 
 <!doctype html>
 <html lang="en">
@@ -46,6 +47,7 @@ if (!isset($_SESSION['logged_in'])) {
     <main>
         <h2>Add New Pet</h2>
 
+        <!-- Required so the form can send files correctly (uses multipart/form-data format instead of plain text) -->
         <form method="POST" action="scripts/process_add_pet.php" enctype="multipart/form-data">
             <fieldset>
                 <legend>Basic Details</legend>

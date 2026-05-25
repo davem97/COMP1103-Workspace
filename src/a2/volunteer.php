@@ -39,8 +39,10 @@
     </nav>
 
     <main>
+        <!-- Show a success banner if an enquiry was submitted successfully (based on URL parameters) !-->
         <?php if (isset($_GET['enquiry']) && $_GET['enquiry'] === 'success'): ?>
             <div class="floating-banner banner-success" id="admin-banner">
+                <!-- Adds the user's name to the message if it was provided in the URL !-->
                 Thank you<?= isset($_GET['name']) ? ', ' . htmlspecialchars($_GET['name']) : '' ?>!
                 Your enquiry has been received. We'll be in touch within 2 business days.
             </div>
@@ -49,7 +51,7 @@
         <section class="volunteer-intro" style="padding: 20px; text-align: center;">
             <h2>Volunteer With Us</h2>
 
-            <!-- Section 1: Single centered box with side images -->
+            <!-- Single centered box with side images !-->
             <div class="purpose-with-images">
                 <img src="images/volunteer_img1.png" alt="Volunteers helping animals" class="purpose-side-img purpose-img-left">
 
@@ -70,7 +72,7 @@
                 <img src="images/volunteer_img2.png" alt="A happy volunteer with a pet" class="purpose-side-img purpose-img-right">
             </div>
 
-            <!-- Section 2: Two side-by-side boxes -->
+            <!-- Two side-by-side boxes -->
             <section class="volunteer-pair">
                 <div class="volunteer-section">
                     <div class="volunteer-header-box">

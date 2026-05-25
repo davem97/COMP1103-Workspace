@@ -1,5 +1,6 @@
 <?php
-// Load pet data from JSON
+// Load pet data from JSON file and convert it into a PHP array
+// If file is missing or invalid, fall back to an empty array
 $petsFile = __DIR__ . '/data/pets.json';
 $pets = [];
 if (file_exists($petsFile)) {
@@ -9,24 +10,26 @@ if (file_exists($petsFile)) {
     }
 }
 
-// Read the search term and filters from URL (if any)
+// Get search term and filter options from the URL (GET parameters)
+// Defaults to empty values if nothing is selected
 $searchTerm    = trim($_GET['search'] ?? '');
 $colourFilter  = $_GET['color'] ?? [];  // array of checked colours
 $sizeFilter    = $_GET['size'] ?? [];   // array of checked sizes
 $ageFilter     = $_GET['age'] ?? [];    // array of checked age categories
 
-// Normalize filter values to lowercase for case-insensitive matching
+// Convert filter values to lowercase so matching is not case-sensitive
 $colourFilter = array_map('strtolower', (array)$colourFilter);
 $sizeFilter   = array_map('strtolower', (array)$sizeFilter);
 $ageFilter    = array_map('strtolower', (array)$ageFilter);
 
-// Helper: figure out if a pet's age text means "baby" or "senior"
+// Convert age text into categories (baby, adult, senior) for filtering purposes
+// Uses simple rules based on wording and numeric age
 function getAgeCategory($ageText)
 {
     $ageText = strtolower($ageText);
-    // "Baby" = anything in months OR explicitly "1 year" or under
+    // "Baby" = anything in months OR if it's exactly "1 year" or under
     if (strpos($ageText, 'month') !== false) return 'baby';
-    // "Senior" = 7+ years (cats/dogs senior thresholds vary, 7 is common)
+    // "Senior" = 7+ years (cats/dogs senior thresholds can be different, 7 is common)
     if (preg_match('/(\d+)\s*year/', $ageText, $match)) {
         $years = (int)$match[1];
         if ($years >= 7) return 'senior';
@@ -37,7 +40,7 @@ function getAgeCategory($ageText)
 // Start with all pets, then narrow down
 $filteredPets = $pets;
 
-// === Stage 1: Keyword search ===
+// Keyword search to begin with
 if ($searchTerm !== '') {
     $keywords = preg_split('/\s+/', strtolower($searchTerm));
     $keywords = array_filter($keywords, function ($word) {
@@ -63,7 +66,7 @@ if ($searchTerm !== '') {
     });
 }
 
-// === Stage 2: Colour filter (OR within category) ===
+// Then the next part is the colour filter (OR within category)
 if (!empty($colourFilter)) {
     $filteredPets = array_filter($filteredPets, function ($pet) use ($colourFilter) {
         $petColour = strtolower($pet['colour'] ?? '');
@@ -76,7 +79,7 @@ if (!empty($colourFilter)) {
     });
 }
 
-// === Stage 3: Size filter ===
+// Then go to the size filter
 if (!empty($sizeFilter)) {
     $filteredPets = array_filter($filteredPets, function ($pet) use ($sizeFilter) {
         $petSize = strtolower($pet['size'] ?? '');
@@ -84,7 +87,7 @@ if (!empty($sizeFilter)) {
     });
 }
 
-// === Stage 4: Age category filter ===
+// Same approach, but now for age filter
 if (!empty($ageFilter)) {
     $filteredPets = array_filter($filteredPets, function ($pet) use ($ageFilter) {
         $category = getAgeCategory($pet['age']);
@@ -95,7 +98,7 @@ if (!empty($ageFilter)) {
 // Reindex the array (good practice after array_filter)
 $filteredPets = array_values($filteredPets);
 
-// Are any filters or search active? (used to decide whether to show banner)
+// If there any filters or search active
 $hasActiveFilters = $searchTerm !== '' || !empty($colourFilter) || !empty($sizeFilter) || !empty($ageFilter);
 ?>
 
@@ -154,7 +157,7 @@ $hasActiveFilters = $searchTerm !== '' || !empty($colourFilter) || !empty($sizeF
                     <div id="filter-dropdown" class="filter-dropdown-box">
                         <h3>Additional filters</h3>
                         <div class="checkbox-grid">
-                            <label><input type="checkbox" name="color[]" value="brown" <?= in_array('brown',  $colourFilter) ? 'checked' : '' ?>> Brown</label>
+                            <label><input type="checkbox" name="color[]" value="brown" <?= in_array('brown',  $colourFilter) ? 'checked' : '' ?>> Brown</label> <!-- Keeps the checkbox selected if "brown" is part of the currently active colour filters !-->
                             <label><input type="checkbox" name="color[]" value="white" <?= in_array('white',  $colourFilter) ? 'checked' : '' ?>> White</label>
                             <label><input type="checkbox" name="color[]" value="blonde" <?= in_array('blonde', $colourFilter) ? 'checked' : '' ?>> Blonde</label>
                             <label><input type="checkbox" name="color[]" value="black" <?= in_array('black',  $colourFilter) ? 'checked' : '' ?>> Black</label>
@@ -172,6 +175,7 @@ $hasActiveFilters = $searchTerm !== '' || !empty($colourFilter) || !empty($sizeF
             </form>
         </div>
 
+        <!-- Shows current search/filter status and option to clear all filters -->
         <?php if ($hasActiveFilters): ?>
             <p class="search-results-info">
                 <?php if ($searchTerm !== ''): ?>
@@ -183,7 +187,9 @@ $hasActiveFilters = $searchTerm !== '' || !empty($colourFilter) || !empty($sizeF
             </p>
         <?php endif; ?>
 
+        <!-- Main pet results section: shows filtered pets or fallback messages -->
         <section class="pet-display-container">
+            <!-- Message shown when filters return no matching pets -->
             <?php if (empty($filteredPets)): ?>
                 <?php if ($hasActiveFilters): ?>
                     <p class="no-results-message">
@@ -194,6 +200,7 @@ $hasActiveFilters = $searchTerm !== '' || !empty($colourFilter) || !empty($sizeF
                     <p>No pets available at the moment. Please check back soon!</p>
                 <?php endif; ?>
             <?php else: ?>
+                <!-- Loop through and display each pet card -->
                 <?php foreach ($filteredPets as $pet): ?>
                     <article class="pet-card">
                         <h3 class="pet-card-name"><?= htmlspecialchars($pet['name']) ?></h3>

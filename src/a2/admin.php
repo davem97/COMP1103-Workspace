@@ -1,5 +1,6 @@
 <?php
 session_start();
+/* Handles admin login/logout and controls access to the admin page using a session */
 
 // Hardcoded credentials (basic auth for a school project)
 $validUser = "admin";
@@ -14,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
   }
 }
 
-// Handle logout
+// Handle logout, checks if a value exists in the URL query string (GET parameters)
 if (isset($_GET['logout'])) {
   session_destroy();
   header("Location: admin.php");
@@ -64,6 +65,7 @@ if (!isset($_SESSION['logged_in'])) {
     <main>
       <h2>Admin Login</h2>
 
+      <!-- Shows an error message if the login attempt failed !-->
       <?php if (isset($loginError)): ?>
         <div class="admin-banner banner-error">
           <strong>&#9888; Login failed.</strong> <?= $loginError ?>

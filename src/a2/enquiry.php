@@ -1,7 +1,8 @@
 <?php
-// Pre-fill the role field from URL parameter (passed from volunteer.php buttons)
 $role = htmlspecialchars($_GET['role'] ?? '');
 ?>
+<!-- Pre-fill the role field from URL parameter (passed from volunteer.php buttons) !-->
+
 <!doctype html>
 <html lang="en">
 
@@ -45,12 +46,14 @@ $role = htmlspecialchars($_GET['role'] ?? '');
     <main>
         <h2>Volunteer Enquiry</h2>
 
+        <!-- If a role is set, show a message indicating which role the user is enquiring about -->
         <?php if ($role !== ''): ?>
             <p class="application-prefill-note">
                 You are enquiring about: <strong><?= $role ?></strong>
             </p>
         <?php endif; ?>
 
+        <!-- Sends form data to the server for processing via POST -->
         <form action="scripts/process_enquiry.php" method="POST">
             <fieldset>
                 <legend>Your Details</legend>

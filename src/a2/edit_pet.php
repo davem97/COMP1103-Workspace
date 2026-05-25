@@ -4,8 +4,9 @@ if (!isset($_SESSION['logged_in'])) {
     header("Location: admin.php");
     exit();
 }
+/* Protect page: only allow access if user is logged in, otherwise redirect to login page */
 
-// Get pet ID from URL
+// Get the pet ID from the URL (defaults to 0 if not provided or invalid)
 $requestedId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 // Load pets
@@ -33,6 +34,7 @@ if ($pet === null) {
     exit();
 }
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -86,9 +88,10 @@ if ($pet === null) {
                 <label for="age">Age:</label>
                 <input type="text" id="age" name="age" value="<?= htmlspecialchars($pet['age']) ?>" required>
 
+                <!-- Dropdown for selecting gender, with the current value pre-selected based on existing pet data !-->
                 <label for="gender">Gender:</label>
                 <select id="gender" name="gender" required>
-                    <option value="Male" <?= $pet['gender'] === 'Male' ? 'selected' : '' ?>>Male</option>
+                    <option value="Male" <?= $pet['gender'] === 'Male' ? 'selected' : '' ?>>Male</option> <!-- Marks the correct option as selected when editing an existing pet !-->
                     <option value="Female" <?= $pet['gender'] === 'Female' ? 'selected' : '' ?>>Female</option>
                 </select>
 

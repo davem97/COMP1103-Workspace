@@ -4,6 +4,7 @@ if (!isset($_SESSION['logged_in'])) {
     header("Location: ../admin.php");
     exit();
 }
+// Ensure user is logged in and request is a valid POST submission
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: ../admin.php");
@@ -15,6 +16,7 @@ $petsFile = __DIR__ . '/../data/pets.json';
 
 $uploadDir = __DIR__ . '/../images/';
 
+// Handles image upload and returns a generated filename if successful
 function handleUpload($fileKey, $uploadDir, $petId, $suffix = 'extra')
 {
     if (isset($_FILES[$fileKey]) && $_FILES[$fileKey]['error'] === UPLOAD_ERR_OK) {
@@ -28,7 +30,7 @@ function handleUpload($fileKey, $uploadDir, $petId, $suffix = 'extra')
     return null;
 }
 
-// Load existing pets
+// Load existing pets from JSON file (or use empty array if file is missing/corrupt)
 $pets = [];
 if (file_exists($petsFile)) {
     $pets = json_decode(file_get_contents($petsFile), true);
@@ -37,14 +39,15 @@ if (file_exists($petsFile)) {
     }
 }
 
-// Get the ID of the pet to update
+// Get ID of pet being edited
 $idToEdit = (int)$_POST['id'];
 
 // Find and update the matching pet
 $updatedName = '';
+// Find the pet being edited and update its details
 foreach ($pets as &$pet) {
     if ($pet['id'] === $idToEdit) {
-        // --- 1. HANDLE IMAGES ---
+        // Update images only if new files were uploaded
         // Try uploading new files
         $newMain   = handleUpload('main_image', $uploadDir, $idToEdit, 'main');
         $newExtra1 = handleUpload('extra_image_1', $uploadDir, $idToEdit, 'extra1');
@@ -55,13 +58,13 @@ foreach ($pets as &$pet) {
             $pet['image'] = $newMain;
         }
 
-        // Handle extra images (keep old ones if no new ones are uploaded)
+        // Update extra images while keeping existing ones if no new uploads are provided
         $updatedExtras = $pet['extraImages'] ?? [];
         if ($newExtra1) $updatedExtras[0] = $newExtra1;
         if ($newExtra2) $updatedExtras[1] = $newExtra2;
         $pet['extraImages'] = array_values(array_filter($updatedExtras));
 
-        // --- 2. HANDLE BASIC FIELDS ---
+        // Update basic pet information from form input
         $pet['name']         = htmlspecialchars($_POST['name']);
         $pet['age']          = htmlspecialchars($_POST['age']);
         $pet['gender']       = htmlspecialchars($_POST['gender']);
@@ -71,8 +74,7 @@ foreach ($pets as &$pet) {
         $pet['tag']          = htmlspecialchars($_POST['tag']);
         $pet['sourceNumber'] = htmlspecialchars($_POST['sourceNumber']);
 
-        // --- 3. HANDLE ADDITIONAL INFO ---
-        // This ensures we save the description and moreInfo fields
+        // Update additional pet details (description, kids, weight, status)
         $pet['additionalInfo'] = [
             "paragraphs" => [htmlspecialchars($_POST['description'] ?? '')],
             "moreInfo" => [
@@ -87,7 +89,7 @@ foreach ($pets as &$pet) {
         break;
     }
 }
-unset($pet); // Break the reference (PHP best practice after foreach with &)
+unset($pet); // Break reference from foreach loop
 
 // Save the updated list back to the file
 file_put_contents($petsFile, json_encode($pets, JSON_PRETTY_PRINT));
