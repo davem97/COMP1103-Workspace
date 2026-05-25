@@ -1,169 +1,206 @@
 [
-  {
-    "id": 1,
-    "name": "Jolly",
-    "age": "2 years",
-    "gender": "Female",
-    "breed": "Labrador",
-    "price": 250,
-    "microchip": "956000012345678",
-    "tag": "HP-001",
-    "sourceNumber": "VB12345",
-    "image": "cat1.png",
-    "extraImages": ["jolly_extra1.png", "jolly_extra2.png"],
-    "additionalInfo": {
-        "paragraphs": [
-            "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
-            "He can be in a home with many or few people, neither matters to Jolly, however as he is an outgoing dog, being in an active home where he has access to frequent runs, exercise and activities would make all the positive difference in the world.",
-            "Jolly has no issues with other dogs out in public and rarely barks on his own without provocation or lots of interaction from other dog(s). He listens to commands and is very gentle at all times.",
-            "He is the perfect dog for your kids and whole family, Jolly loves playing with any family who would take him in."
+    {
+        "id": 1,
+        "name": "Jolly",
+        "age": "2 years",
+        "gender": "Female",
+        "breed": "Labrador",
+        "price": 250,
+        "microchip": "956000012345678",
+        "tag": "HP-001",
+        "sourceNumber": "VB12345",
+        "image": "cat1.png",
+        "extraImages": [
+            "jolly_extra1.png",
+            "jolly_extra2.png"
         ],
-        "moreInfo": {
-            "Kids": "10+",
-            "Weight": "14.9 kgs",
-            "Status": "Active"
-        },
-        "closing": "Apply now for the opportunity to take home this wonderful and lovely dog, Jolly, who would be a great and pleasant addition to any family."
-    }
-},
-
-{
-    "id": 2,
-    "name": "Jolly",
-    "age": "2 years",
-    "gender": "Female",
-    "breed": "Labrador",
-    "price": 250,
-    "microchip": "956000012345678",
-    "tag": "HP-001",
-    "sourceNumber": "VB12345",
-    "image": "cat1.png",
-    "extraImages": ["jolly_extra1.png", "jolly_extra2.png"],
-    "additionalInfo": {
-        "paragraphs": [
-            "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
-            "He can be in a home with many or few people, neither matters to Jolly, however as he is an outgoing dog, being in an active home where he has access to frequent runs, exercise and activities would make all the positive difference in the world.",
-            "Jolly has no issues with other dogs out in public and rarely barks on his own without provocation or lots of interaction from other dog(s). He listens to commands and is very gentle at all times.",
-            "He is the perfect dog for your kids and whole family, Jolly loves playing with any family who would take him in."
+        "additionalInfo": {
+            "paragraphs": [
+                "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
+                "He can be in a home with many or few people, neither matters to Jolly, however as he is an outgoing dog, being in an active home where he has access to frequent runs, exercise and activities would make all the positive difference in the world.",
+                "Jolly has no issues with other dogs out in public and rarely barks on his own without provocation or lots of interaction from other dog(s). He listens to commands and is very gentle at all times.",
+                "He is the perfect dog for your kids and whole family, Jolly loves playing with any family who would take him in."
+            ],
+            "moreInfo": {
+                "Kids": "10+",
+                "Weight": "14.9 kgs",
+                "Status": "Active"
+            },
+            "closing": "Apply now for the opportunity to take home this wonderful and lovely dog, Jolly, who would be a great and pleasant addition to any family."
+        }
+    },
+    {
+        "id": 2,
+        "name": "Jolly",
+        "age": "2 years",
+        "gender": "Female",
+        "breed": "Labrador",
+        "price": 250,
+        "microchip": "956000012345678",
+        "tag": "HP-001",
+        "sourceNumber": "VB12345",
+        "image": "cat1.png",
+        "extraImages": [
+            "jolly_extra1.png",
+            "jolly_extra2.png"
         ],
-        "moreInfo": {
-            "Kids": "10+",
-            "Weight": "14.9 kgs",
-            "Status": "Active"
-        },
-        "closing": "Apply now for the opportunity to take home this wonderful and lovely dog, Jolly, who would be a great and pleasant addition to any family."
-    }
-},
-
-{
-    "id": 3,
-    "name": "Jolly",
-    "age": "2 years",
-    "gender": "Female",
-    "breed": "Labrador",
-    "price": 250,
-    "microchip": "956000012345678",
-    "tag": "HP-001",
-    "sourceNumber": "VB12345",
-    "image": "cat1.png",
-    "extraImages": ["jolly_extra1.png", "jolly_extra2.png"],
-    "additionalInfo": {
-        "paragraphs": [
-            "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
-            "He can be in a home with many or few people, neither matters to Jolly, however as he is an outgoing dog, being in an active home where he has access to frequent runs, exercise and activities would make all the positive difference in the world.",
-            "Jolly has no issues with other dogs out in public and rarely barks on his own without provocation or lots of interaction from other dog(s). He listens to commands and is very gentle at all times.",
-            "He is the perfect dog for your kids and whole family, Jolly loves playing with any family who would take him in."
+        "additionalInfo": {
+            "paragraphs": [
+                "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
+                "He can be in a home with many or few people, neither matters to Jolly, however as he is an outgoing dog, being in an active home where he has access to frequent runs, exercise and activities would make all the positive difference in the world.",
+                "Jolly has no issues with other dogs out in public and rarely barks on his own without provocation or lots of interaction from other dog(s). He listens to commands and is very gentle at all times.",
+                "He is the perfect dog for your kids and whole family, Jolly loves playing with any family who would take him in."
+            ],
+            "moreInfo": {
+                "Kids": "10+",
+                "Weight": "14.9 kgs",
+                "Status": "Active"
+            },
+            "closing": "Apply now for the opportunity to take home this wonderful and lovely dog, Jolly, who would be a great and pleasant addition to any family."
+        }
+    },
+    {
+        "id": 3,
+        "name": "Jolly",
+        "age": "2 years",
+        "gender": "Female",
+        "breed": "Labrador",
+        "price": 250,
+        "microchip": "956000012345678",
+        "tag": "HP-001",
+        "sourceNumber": "VB12345",
+        "image": "cat1.png",
+        "extraImages": [
+            "jolly_extra1.png",
+            "jolly_extra2.png"
         ],
-        "moreInfo": {
-            "Kids": "10+",
-            "Weight": "14.9 kgs",
-            "Status": "Active"
-        },
-        "closing": "Apply now for the opportunity to take home this wonderful and lovely dog, Jolly, who would be a great and pleasant addition to any family."
-    }
-},
-
-{
-    "id": 4,
-    "name": "Jolly",
-    "age": "2 years",
-    "gender": "Female",
-    "breed": "Labrador",
-    "price": 250,
-    "microchip": "956000012345678",
-    "tag": "HP-001",
-    "sourceNumber": "VB12345",
-    "image": "cat1.png",
-    "extraImages": ["jolly_extra1.png", "jolly_extra2.png"],
-    "additionalInfo": {
-        "paragraphs": [
-            "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
-            "He can be in a home with many or few people, neither matters to Jolly, however as he is an outgoing dog, being in an active home where he has access to frequent runs, exercise and activities would make all the positive difference in the world.",
-            "Jolly has no issues with other dogs out in public and rarely barks on his own without provocation or lots of interaction from other dog(s). He listens to commands and is very gentle at all times.",
-            "He is the perfect dog for your kids and whole family, Jolly loves playing with any family who would take him in."
+        "additionalInfo": {
+            "paragraphs": [
+                "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
+                "He can be in a home with many or few people, neither matters to Jolly, however as he is an outgoing dog, being in an active home where he has access to frequent runs, exercise and activities would make all the positive difference in the world.",
+                "Jolly has no issues with other dogs out in public and rarely barks on his own without provocation or lots of interaction from other dog(s). He listens to commands and is very gentle at all times.",
+                "He is the perfect dog for your kids and whole family, Jolly loves playing with any family who would take him in."
+            ],
+            "moreInfo": {
+                "Kids": "10+",
+                "Weight": "14.9 kgs",
+                "Status": "Active"
+            },
+            "closing": "Apply now for the opportunity to take home this wonderful and lovely dog, Jolly, who would be a great and pleasant addition to any family."
+        }
+    },
+    {
+        "id": 4,
+        "name": "Jolly",
+        "age": "2 years",
+        "gender": "Female",
+        "breed": "Labrador",
+        "price": 250,
+        "microchip": "956000012345678",
+        "tag": "HP-001",
+        "sourceNumber": "VB12345",
+        "image": "cat1.png",
+        "extraImages": [
+            "jolly_extra1.png",
+            "jolly_extra2.png"
         ],
-        "moreInfo": {
-            "Kids": "10+",
-            "Weight": "14.9 kgs",
-            "Status": "Active"
-        },
-        "closing": "Apply now for the opportunity to take home this wonderful and lovely dog, Jolly, who would be a great and pleasant addition to any family."
-    }
-},
-
-{
-    "id": 5,
-    "name": "Jolly",
-    "age": "2 years",
-    "gender": "Female",
-    "breed": "Labrador",
-    "price": 250,
-    "microchip": "956000012345678",
-    "tag": "HP-001",
-    "sourceNumber": "VB12345",
-    "image": "cat1.png",
-    "extraImages": ["jolly_extra1.png", "jolly_extra2.png"],
-    "additionalInfo": {
-        "paragraphs": [
-            "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
-            "He can be in a home with many or few people, neither matters to Jolly, however as he is an outgoing dog, being in an active home where he has access to frequent runs, exercise and activities would make all the positive difference in the world.",
-            "Jolly has no issues with other dogs out in public and rarely barks on his own without provocation or lots of interaction from other dog(s). He listens to commands and is very gentle at all times.",
-            "He is the perfect dog for your kids and whole family, Jolly loves playing with any family who would take him in."
+        "additionalInfo": {
+            "paragraphs": [
+                "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
+                "He can be in a home with many or few people, neither matters to Jolly, however as he is an outgoing dog, being in an active home where he has access to frequent runs, exercise and activities would make all the positive difference in the world.",
+                "Jolly has no issues with other dogs out in public and rarely barks on his own without provocation or lots of interaction from other dog(s). He listens to commands and is very gentle at all times.",
+                "He is the perfect dog for your kids and whole family, Jolly loves playing with any family who would take him in."
+            ],
+            "moreInfo": {
+                "Kids": "10+",
+                "Weight": "14.9 kgs",
+                "Status": "Active"
+            },
+            "closing": "Apply now for the opportunity to take home this wonderful and lovely dog, Jolly, who would be a great and pleasant addition to any family."
+        }
+    },
+    {
+        "id": 5,
+        "name": "Jolly",
+        "age": "2 years",
+        "gender": "Female",
+        "breed": "Labrador",
+        "price": 250,
+        "microchip": "956000012345678",
+        "tag": "HP-001",
+        "sourceNumber": "VB12345",
+        "image": "cat1.png",
+        "extraImages": [
+            "jolly_extra1.png",
+            "jolly_extra2.png"
         ],
-        "moreInfo": {
-            "Kids": "10+",
-            "Weight": "14.9 kgs",
-            "Status": "Active"
-        },
-        "closing": "Apply now for the opportunity to take home this wonderful and lovely dog, Jolly, who would be a great and pleasant addition to any family."
-    }
-},
-
-{
-    "id": 6,
-    "name": "Jolly",
-    "age": "2 years",
-    "gender": "Female",
-    "breed": "Labrador",
-    "price": 250,
-    "microchip": "956000012345678",
-    "tag": "HP-001",
-    "sourceNumber": "VB12345",
-    "image": "cat1.png",
-    "extraImages": ["jolly_extra1.png", "jolly_extra2.png"],
-    "additionalInfo": {
-        "paragraphs": [
-            "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
-            "He can be in a home with many or few people, neither matters to Jolly, however as he is an outgoing dog, being in an active home where he has access to frequent runs, exercise and activities would make all the positive difference in the world.",
-            "Jolly has no issues with other dogs out in public and rarely barks on his own without provocation or lots of interaction from other dog(s). He listens to commands and is very gentle at all times.",
-            "He is the perfect dog for your kids and whole family, Jolly loves playing with any family who would take him in."
+        "additionalInfo": {
+            "paragraphs": [
+                "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
+                "He can be in a home with many or few people, neither matters to Jolly, however as he is an outgoing dog, being in an active home where he has access to frequent runs, exercise and activities would make all the positive difference in the world.",
+                "Jolly has no issues with other dogs out in public and rarely barks on his own without provocation or lots of interaction from other dog(s). He listens to commands and is very gentle at all times.",
+                "He is the perfect dog for your kids and whole family, Jolly loves playing with any family who would take him in."
+            ],
+            "moreInfo": {
+                "Kids": "10+",
+                "Weight": "14.9 kgs",
+                "Status": "Active"
+            },
+            "closing": "Apply now for the opportunity to take home this wonderful and lovely dog, Jolly, who would be a great and pleasant addition to any family."
+        }
+    },
+    {
+        "id": 6,
+        "name": "Jolly",
+        "age": "2 years",
+        "gender": "Female",
+        "breed": "Labrador",
+        "price": 250,
+        "microchip": "956000012345678",
+        "tag": "HP-001",
+        "sourceNumber": "VB12345",
+        "image": "cat1.png",
+        "extraImages": [
+            "jolly_extra1.png",
+            "jolly_extra2.png"
         ],
-        "moreInfo": {
-            "Kids": "10+",
-            "Weight": "14.9 kgs",
-            "Status": "Active"
-        },
-        "closing": "Apply now for the opportunity to take home this wonderful and lovely dog, Jolly, who would be a great and pleasant addition to any family."
+        "additionalInfo": {
+            "paragraphs": [
+                "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
+                "He can be in a home with many or few people, neither matters to Jolly, however as he is an outgoing dog, being in an active home where he has access to frequent runs, exercise and activities would make all the positive difference in the world.",
+                "Jolly has no issues with other dogs out in public and rarely barks on his own without provocation or lots of interaction from other dog(s). He listens to commands and is very gentle at all times.",
+                "He is the perfect dog for your kids and whole family, Jolly loves playing with any family who would take him in."
+            ],
+            "moreInfo": {
+                "Kids": "10+",
+                "Weight": "14.9 kgs",
+                "Status": "Active"
+            },
+            "closing": "Apply now for the opportunity to take home this wonderful and lovely dog, Jolly, who would be a great and pleasant addition to any family."
+        }
+    },
+    {
+        "id": 7,
+        "name": "Bandit",
+        "age": "1 year",
+        "gender": "Male",
+        "breed": "chihuahua",
+        "price": 100,
+        "microchip": "51231231",
+        "tag": "HP-005",
+        "sourceNumber": "VG12345",
+        "image": "placeholder.png",
+        "extraImages": [],
+        "additionalInfo": {
+            "paragraphs": [
+                "This pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is great\r\n\r\nThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is great\r\n\r\n\r\nThis pet is greatThis pet is greatThis pet is great\r\n\r\nYes: yes\r\nNo: no\r\nTest: test"
+            ],
+            "moreInfo": {
+                "Kids": "14+",
+                "Weight": "3.0 kgs",
+                "Status": "Active"
+            },
+            "closing": "Contact us for more info!"
+        }
     }
-}
 ]
