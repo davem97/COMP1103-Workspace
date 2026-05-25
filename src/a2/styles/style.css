@@ -1252,3 +1252,150 @@ main p {
         padding-top: 60px;
     }
 }
+
+/* =========================================
+   18. VOLUNTEER PAGE
+   ========================================= */
+
+/* Single centered section (e.g. "Our Purpose") */
+.volunteer-section {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* The blue header box that contains an h3 */
+.volunteer-header-box {
+    background-color: #4a90c2; /* Medium blue */
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    margin: 0 auto 1.25rem auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.volunteer-header-box h3 {
+    margin: 0;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* The paragraph below each box */
+.volunteer-text {
+    text-align: left;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #333;
+    margin: 0;
+}
+
+/* Adds a big gap below the "single" section before the pair */
+.volunteer-section.single {
+    margin-bottom: 4rem;
+}
+
+/* The wrapper for the two side-by-side sections */
+.volunteer-pair {
+    max-width: 1100px;
+    margin: 0 auto 3rem auto;
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Inside the pair, each section takes equal width */
+.volunteer-pair .volunteer-section {
+    flex: 1 1 400px;
+    max-width: 500px;
+    margin: 0; /* Override the auto margin since flex handles spacing */
+}
+
+/* =========================================
+   19. RESPONSIVE - VOLUNTEER PAGE
+   ========================================= */
+
+/* Large desktops / 2K monitors */
+@media (min-width: 1400px) {
+    .volunteer-section {
+        max-width: 800px;
+    }
+
+    .volunteer-pair {
+        max-width: 1300px;
+        gap: 3rem;
+    }
+
+    .volunteer-pair .volunteer-section {
+        max-width: 600px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+    .volunteer-pair {
+        gap: 2rem;
+    }
+
+    .volunteer-header-box {
+        padding: 0.9rem 1.5rem;
+    }
+
+    .volunteer-header-box h3 {
+        font-size: 1.35rem;
+    }
+}
+
+/* Small tablets / large phones - stack the pair vertically */
+@media (max-width: 768px) {
+    .volunteer-section {
+        max-width: 90%;
+    }
+
+    .volunteer-pair {
+        flex-direction: column;
+        gap: 2.5rem;
+        max-width: 90%;
+    }
+
+    .volunteer-pair .volunteer-section {
+        max-width: 100%;
+    }
+
+    .volunteer-section.single {
+        margin-bottom: 3rem;
+    }
+
+    .volunteer-text {
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+    .volunteer-section {
+        max-width: 100%;
+    }
+
+    .volunteer-header-box {
+        padding: 0.8rem 1.25rem;
+    }
+
+    .volunteer-header-box h3 {
+        font-size: 1.2rem;
+    }
+
+    .volunteer-text {
+        font-size: 0.98rem;
+    }
+
+    .volunteer-section.single {
+        margin-bottom: 2.5rem;
+    }
+
+    .volunteer-pair {
+        gap: 2rem;
+    }
+}
