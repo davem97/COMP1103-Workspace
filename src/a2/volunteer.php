@@ -45,7 +45,7 @@
                 Your enquiry has been received. We'll be in touch within 2 business days.
             </div>
         <?php endif; ?>
-        
+
         <section class="volunteer-intro" style="padding: 20px; text-align: center;">
             <h2>Volunteer With Us</h2>
 
@@ -62,7 +62,8 @@
                         Our volunteers are the heart of everything we do — from walking dogs and socialising
                         cats, to running adoption events and helping with day-to-day care. Whether you have
                         a few hours a week or a full day to spare, your time can make a lasting difference
-                        in the lives of the animals waiting for their second chance.
+                        in the lives of the animals waiting for their second chance. Feel free to <a href="donate.php">make a donation</a> to 
+                        support our purpose.
                     </p>
                 </section>
 
