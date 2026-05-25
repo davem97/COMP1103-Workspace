@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Jolly",
+    "age": "2 years",
+    "gender": "Female",
+    "breed": "Labrador",
+    "price": 250,
+    "microchip": "956000012345678",
+    "tag": "HP-001",
+    "sourceNumber": "VB12345",
+    "image": "cat1.png"
+  },
+  {
+    "id": 2,
+    "name": "Bella",
+    "age": "3 years",
+    "gender": "Female",
+    "breed": "Beagle",
+    "price": 200,
+    "microchip": "956000023456789",
+    "tag": "HP-002",
+    "sourceNumber": "VB12346",
+    "image": "dog1.png"
+  },
+  {
+    "id": 3,
+    "name": "Luna",
+    "age": "1 year",
+    "gender": "Female",
+    "breed": "Husky",
+    "price": 300,
+    "microchip": "956000034567890",
+    "tag": "HP-003",
+    "sourceNumber": "VB12347",
+    "image": "dog2.png"
+  },
+  {
+    "id": 4,
+    "name": "Rex",
+    "age": "5 years",
+    "gender": "Male",
+    "breed": "German Shepherd",
+    "price": 400,
+    "microchip": "956000045678901",
+    "tag": "HP-004",
+    "sourceNumber": "VB12348",
+    "image": "dog3.png"
+  },
+  {
+    "id": 5,
+    "name": "Daisy",
+    "age": "3 years",
+    "gender": "Female",
+    "breed": "Golden Retriever",
+    "price": 500,
+    "microchip": "956000056789012",
+    "tag": "HP-005",
+    "sourceNumber": "VB12349",
+    "image": "dog4.png"
+  },
+  {
+    "id": 6,
+    "name": "Oliver",
+    "age": "1 year",
+    "gender": "Male",
+    "breed": "Tabby",
+    "price": 150,
+    "microchip": "956000067890123",
+    "tag": "HP-006",
+    "sourceNumber": "VB12350",
+    "image": "cat2.png"
+  }
+]
