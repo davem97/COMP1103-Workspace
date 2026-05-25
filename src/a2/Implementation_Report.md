@@ -3,6 +3,8 @@
 **Date:** May 2026  
 **Directory:** project-docs/src/A2/
 
+I acknowledge the use of Claude AI (Anthropic, 2026) in the development of this submission. Claude was used to assist with coding, specifically partial PHP and JavaScript, with some debugging. All prompts and outputs are included in Appendix 1.
+
 ---
 
 ## 1. Website Functionality & Flow
@@ -110,16 +112,139 @@
 ---
 
 ## 4. Reflection
-The transition from the initial static design to a fully functional dynamic prototype was a highly educational process. Initially, the Happy Paws layout was designed using hardcoded HTML and CSS, which allowed for rapid UI and layout testing but lacked scalability. Moving to a PHP and JSON-based backend required a significant shift in thinking, as the presentation layer had to be decoupled from the data layer. This separation ultimately made the prototype much more robust, allowing new pets to be populated automatically without touching the core HTML structure.
+The transition from the initial static design to a more functional dynamic prototype was a really useful learning process. At first, the Happy Paws layout was built using hardcoded HTML and CSS, which made it easier to quickly test how the site looked and felt. However, it became clear that this approach wouldn’t scale well once more pets or features were added. Moving to a PHP and JSON-based system meant I had to rethink how the site was structured, separating the content (data) from the layout. This made the site much easier to manage because new pets could be added or updated without having to manually change the HTML each time. I still ended up hardcoding a small portion of the website which in a real life non-assignment scenario I would not have done so.
 
-The complexity of development spiked significantly when implementing the administrative operations. Specifically, building the "Add Pet" and "Edit Pet" functionalities required careful handling of server-side interactions. Managing multipart form data for image uploads, dynamically generating unique filenames using timestamps to prevent overwrites, and synchronizing these physical files with the JSON database proved to be the most technically demanding aspects of the project. It required strict attention to PHP array manipulation, null coalescing, and data validation to ensure existing information wasn't accidentally deleted during edits.
+The most challenging part of the project was building the admin features, especially the “Add Pet” and “Edit Pet” functionality. Handling image uploads correctly, making sure filenames didn’t clash, and keeping the JSON file in sync with the changes required a lot of testing and debugging. A key focus was making sure that existing pet information wasn’t accidentally overwritten when edits were made, which meant carefully checking what data was already there before saving updates.
 
-Finally, several accommodations were necessary to ensure a successful deployment to the live server environment. One major hurdle was file pathing; utilizing relative absolute paths via PHP's __DIR__ constant became essential to prevent broken data links when scripts were executed from different directories. Additionally, server directory permissions had to be accounted for so that the PHP script had the necessary write access to save uploaded photos into the images/ folder. Implementing strict session handling was also required to secure the admin portal from unauthorized access. Overcoming these server-side hurdles ultimately resulted in a secure, dynamic, and easily maintainable website.
+There were also a few practical issues when moving the project into a working server environment. One common problem was file paths not always working correctly depending on where the script was running from, which sometimes caused images or data not to load properly. I also had to make sure the server had permission to save uploaded images into the correct folder. On top of that, I added basic login protection to the admin area so that only authorised users could access it. Solving these issues helped make the site more reliable and closer to a real-world working system. The admin portal also came with issues where adding or editing pets caused a dilemma because I had to find a way to be able to actively add or edit new photos into a brand new animal which was the toughest part. Thankfully I was able to partially copy and paste what I had done in Modules 8 and 9 plus my other .php files which allowed me to find a way to get it done. 
 
 ---
 
-## 5. Appendix: GitHub Activity Log
+## Appendix A – AI Usage
+
+
+### Prompt
+"Now how do I fix the issue where, when I open a page (im on codespaces), some images never load. Its random each time. I dont want my teacher to have issues with this."
+
+### AI Response (excerpt)
+"Stop your server (Ctrl + C) and restart it with multi-worker support:
+
+PHP_CLI_SERVER_WORKERS=4 php -S 0.0.0.0:8000
+
+That spins up 4 worker processes so requests can be handled in parallel."
+
+### Prompt
+"Is there an appropriate method that I skipped to fix the search bar in adoption.php? I have a filter list. I need to make the filter work as well as currently it's partially bugged and I haven't been able to debug it."
+
+### AI Response (excerpt)
+Suggested converting the search container into a GET form and updating filter inputs:
+
+- Changed:
+  `<div class="search-container">`
+  to
+  `<form action="adoption.php" method="GET" class="search-container">`
+
+- Added:
+  `name="search"` and
+  `value="<?= htmlspecialchars($searchTerm) ?>"`
+
+- Changed search button:
+  `type="button"` → `type="submit"`
+
+- Updated checkbox names:
+  `name="color"` → `name="color[]"`
+
+- Changed Apply Filters button:
+  `type="button"` → `type="submit"`
+
+- Updated closing tag from `</div>` to `</form>`
+
+### Prompt
+"How can I add a simple Clear Filters button and make the volunteer search bar/buttons match the centered layout and size used on index.html?"
+
+### AI Response (excerpt)
+Suggested:
+- Adding a `.filter-buttons` container with both an Apply Filters and Clear All button
+- Styling the buttons with Flexbox for centered alignment
+- Creating a transparent outlined style for the Clear Filters button
+- Updating the volunteer search bar CSS to match the homepage search layout and sizing
+
+### Prompt
+"How do I add 2 extra vertical images per pet under the buttons and above the footer, with spacing and CSS? Also what image size should I use?"
+
+### AI Response (excerpt)
+
+1. Add extra images to `pets.json`
+
+For each pet, add an `extraImages` array:
+
+Example:
+{
+  "id": 1,
+  "name": "Jolly",
+  "image": "cat1.png",
+  "extraImages": ["jolly_extra1.png", "jolly_extra2.png"]
+}
+
+If no images exist, use `[]` or omit the field.
+
+---
+
+2. Update `pet-details.php`
+
+Add this below the buttons section:
+
+<?php if (!empty($pet['extraImages']) && is_array($pet['extraImages'])): ?>
+  <div class="pet-extra-images">
+    <?php foreach ($pet['extraImages'] as $extraImg): ?>
+      <!--<img src="..." 
+           class="pet-extra-img">!-->
+    <?php endforeach; ?>
+  </div>
+<?php endif; ?>
+
+---
+
+3. Add CSS
+
+.pet-extra-images {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 3rem auto;
+}
+
+.pet-extra-img {
+  width: 220px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+---
+
+Recommended image size:
+- Display: 220 × 320 px  
+- Actual upload size: ~440 × 640 px (for sharp rendering on high-DPI screens)
+
+<br>
+
+## 5. Appendix B: GitHub Activity Log
 
 ![Github Commits 1 Screenshot](images/github_commits1.png)
 
 ![Github Commits 2 Screenshot](images/github_commits2.png)
+
+## 6. References
+
+* Dimterion (2023) Images slider with JavaScript, Medium, accessed 21 May 2026, https://medium.com/@dimterion/images-slider-with-javascript-95349e0ab4fc
+* MDN contributors (2026) <nav>: The Navigation Section element, MDN Web Docs, last modified 24 April 2026, accessed 22 May 2026, https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/nav
+* W3Schools n.d., How to create a responsive top navigation, W3Schools, accessed 25 May 2026, https://www.w3schools.com/howto/howto_js_topnav_responsive.asp
+* Clark, G (2024) JavaScript — if, else, & else if statements, Medium, accessed 25 May 2026, https://geraldclarkaudio.medium.com/javascript-if-else-else-if-statements-26d18456f304
+* Sabya (2025) Create a mobile toggle navigation menu using HTML, CSS, and JavaScript, GeeksforGeeks, last updated 3 November 2025, accessed 23 May 2026, https://www.geeksforgeeks.org/javascript/create-a-mobile-toggle-navigation-menu-using-html-css-and-javascript/
+* Programiz n.d., JavaScript if...else statement, viewed 25 May 2026, https://www.programiz.com/javascript/if-else
+* Nikhil 2025, How to remove hash from window location with JavaScript without page refresh, GeeksforGeeks, viewed 26 May 2026, https://www.geeksforgeeks.org/javascript/how-to-remove-hash-from-window-location-with-javascript-without-page-refresh/
+* The Postman Team 2025, GET vs POST: Understanding HTTP Request Methods, Postman Blog, viewed 20 May 2026, https://blog.postman.com/get-vs-post/
+* Mukesh Kumar 2025, HTTP Get Method and Post Method, upGrad Tutorials, viewed 24 May 2026, https://www.upgrad.com/tutorials/software-engineering/jquery-tutorial/http-get-and-post-methods/
+* PHP Documentation Group n.d., Arrays, PHP Manual, viewed 25 May 2026, https://www.php.net/manual/en/language.types.array.php
+* Anthropic 2026, Claude AI (May 2026 version), large language model, viewed 22-25 May 2026, https://claude.com/
