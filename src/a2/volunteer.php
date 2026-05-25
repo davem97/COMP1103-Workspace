@@ -46,103 +46,109 @@
         <section class="volunteer-intro" style="padding: 20px; text-align: center;">
             <h2>Volunteer With Us</h2>
 
-    <!-- Section 1: Single centered box -->
-    <section class="volunteer-section single">
-        <div class="volunteer-header-box">
-            <h3>Our Purpose</h3>
-        </div>
-        <p class="volunteer-text">
-            At Happy Paws, we believe every animal deserves love, care, and a forever home.
-            Our volunteers are the heart of everything we do — from walking dogs and socialising
-            cats, to running adoption events and helping with day-to-day care. Whether you have
-            a few hours a week or a full day to spare, your time can make a lasting difference
-            in the lives of the animals waiting for their second chance.
-        </p>
-    </section>
+            <!-- Section 1: Single centered box -->
+            <section class="volunteer-section single">
+                <div class="volunteer-header-box">
+                    <h3>Our Purpose</h3>
+                </div>
+                <p class="volunteer-text">
+                    At Happy Paws, we believe every animal deserves love, care, and a forever home.
+                    Our volunteers are the heart of everything we do — from walking dogs and socialising
+                    cats, to running adoption events and helping with day-to-day care. Whether you have
+                    a few hours a week or a full day to spare, your time can make a lasting difference
+                    in the lives of the animals waiting for their second chance.
+                </p>
+            </section>
 
-    <!-- Section 2: Two side-by-side boxes -->
-    <section class="volunteer-pair">
-        <div class="volunteer-section">
-            <div class="volunteer-header-box">
-                <h3>Help us Make a Difference</h3>
-            </div>
-            <p class="volunteer-text">
-                Volunteering at Happy Paws is rewarding, hands-on, and flexible. You'll work
-                alongside experienced staff to provide care, comfort and enrichment to animals
-                of all shapes and sizes. No prior experience is needed — just enthusiasm and
-                a love for animals.
-            </p>
-        </div>
+            <!-- Section 2: Two side-by-side boxes -->
+            <section class="volunteer-pair">
+                <div class="volunteer-section">
+                    <div class="volunteer-header-box">
+                        <h3>Help us Make a Difference</h3>
+                    </div>
+                    <p class="volunteer-text">
+                        Volunteering at Happy Paws is rewarding, hands-on, and flexible. You'll work
+                        alongside experienced staff to provide care, comfort and enrichment to animals
+                        of all shapes and sizes. No prior experience is needed — just enthusiasm and
+                        a love for animals.
+                    </p>
+                </div>
 
-        <div class="volunteer-section">
-            <div class="volunteer-header-box">
-                <h3>What You'll Gain</h3>
-            </div>
-            <p class="volunteer-text">
-                Beyond the joy of working with animals, our volunteers receive professional
-                training, references for future employment, and access to community events.
-                It's a great way to build skills, meet like-minded people, and contribute to
-                a cause that matters.
-            </p>
-        </div>
-    </section>
+                <div class="volunteer-section">
+                    <div class="volunteer-header-box">
+                        <h3>What You'll Gain</h3>
+                    </div>
+                    <p class="volunteer-text">
+                        Beyond the joy of working with animals, our volunteers receive professional
+                        training, references for future employment, and access to community events.
+                        It's a great way to build skills, meet like-minded people, and contribute to
+                        a cause that matters.
+                    </p>
+                </div>
+            </section>
         </section>
 
         <div class="search-section">
             <h2>Find the Right Volunteer Role</h2>
             <div class="search-container">
-                <input type="text" id="pet-search" placeholder="Search roles (e.g. 'Outdoors', 'Admin')..." />
-                <button type="button" class="search-btn">Search</button>
+                <input type="text" id="volunteer-search" placeholder="Search roles (e.g. 'foster', 'cleaning')..." />
+                <button type="button" class="search-btn" id="volunteer-search-btn">Search</button>
 
                 <div class="filter-wrapper">
                     <button type="button" id="filter-toggle" class="nav-btn">Filter</button>
                     <div id="filter-dropdown" class="filter-dropdown-box">
                         <h3>Role Categories</h3>
                         <div class="checkbox-grid">
-                            <label><input type="checkbox"> Animal Care</label>
-                            <label><input type="checkbox"> Administration</label>
-                            <label><input type="checkbox"> Events</label>
-                            <label><input type="checkbox"> Cleaning</label>
-                            <label><input type="checkbox"> Maintenance</label>
+                            <label><input type="checkbox" class="volunteer-filter" value="animal care"> Animal Care</label>
+                            <label><input type="checkbox" class="volunteer-filter" value="administration"> Administration</label>
+                            <label><input type="checkbox" class="volunteer-filter" value="events"> Events</label>
+                            <label><input type="checkbox" class="volunteer-filter" value="cleaning"> Cleaning</label>
+                            <label><input type="checkbox" class="volunteer-filter" value="maintenance"> Maintenance</label>
                         </div>
-                        <button type="button" class="apply-filters-btn">Apply Filter(s)</button>
+                        <div class="filter-buttons">
+                            <button type="button" class="apply-filters-btn" id="volunteer-apply-filters">Apply Filter(s)</button>
+                            <button type="button" class="clear-filters-btn" id="volunteer-clear-filters">Clear All</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <section class="pet-display-container">
-            
-            <article class="pet-card volunteer-box">
-                <h3 class="pet-card-name">Foster Care</h3>
-                <div class="pet-image-container">
-                    <img src="images/foster_icon.png" alt="Foster Care Icon" class="pet-card-img">
-                </div>
-                <div class="pet-card-details">
+        <section class="volunteer-jobs-container">
+
+            <article class="volunteer-job-card" data-category="animal care">
+                <h3 class="volunteer-job-title">Foster Care</h3>
+                <div class="volunteer-job-body">
                     <p>Open your home to a pet in transition. We provide the food and medical care; you provide the love and a warm bed until they find a permanent home.</p>
-                    <button type="button" class="view-profile-btn">Enquire Now</button>
+                    <p><strong>Commitment:</strong> Flexible, usually 2–8 weeks per pet.</p>
+                    <p><strong>Suits:</strong> Animal lovers with a quiet home environment.</p>
+                </div>
+                <div class="volunteer-job-action">
+                    <button type="button" class="profile-btn apply-btn">Enquire Now</button>
                 </div>
             </article>
 
-            <article class="pet-card volunteer-box">
-                <h3 class="pet-card-name">Event Help</h3>
-                <div class="pet-image-container">
-                    <img src="images/event_icon.png" alt="Events Icon" class="pet-card-img">
-                </div>
-                <div class="pet-card-details">
+            <article class="volunteer-job-card" data-category="events">
+                <h3 class="volunteer-job-title">Event Help</h3>
+                <div class="volunteer-job-body">
                     <p>Help us at adoption days, community fundraisers, and local markets. Perfect for social people who want to advocate for our animals in public.</p>
-                    <button type="button" class="view-profile-btn">Enquire Now</button>
+                    <p><strong>Commitment:</strong> One Saturday per month, ~4 hours.</p>
+                    <p><strong>Suits:</strong> Outgoing, confident communicators.</p>
+                </div>
+                <div class="volunteer-job-action">
+                    <button type="button" class="profile-btn apply-btn">Enquire Now</button>
                 </div>
             </article>
 
-            <article class="pet-card volunteer-box">
-                <h3 class="pet-card-name">Shelter Support</h3>
-                <div class="pet-image-container">
-                    <img src="images/shelter_icon.png" alt="Maintenance Icon" class="pet-card-img">
-                </div>
-                <div class="pet-card-details">
+            <article class="volunteer-job-card" data-category="cleaning maintenance">
+                <h3 class="volunteer-job-title">Shelter Support</h3>
+                <div class="volunteer-job-body">
                     <p>Keep our facility running smoothly. This includes kennel cleaning, laundry, gardening, and general repairs to keep the animals safe and happy.</p>
-                    <button type="button" class="view-profile-btn">Enquire Now</button>
+                    <p><strong>Commitment:</strong> Weekly, 3–6 hours.</p>
+                    <p><strong>Suits:</strong> Hands-on people who like physical work.</p>
+                </div>
+                <div class="volunteer-job-action">
+                    <button type="button" class="profile-btn apply-btn">Enquire Now</button>
                 </div>
             </article>
 
@@ -181,7 +187,8 @@
             <p class="copyright">&copy; 2026 Happy Paws Animal Shelter</p>
         </div>
     </footer>
-    
+
     <script src="scripts/script.js"></script>
 </body>
+
 </html>

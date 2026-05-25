@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // 3. Inform the user
         alert("Invalid Donation: Please enter an amount greater than $0.");
-        
+
         // 4. Put the cursor back in the box for them
         amountInput.focus();
       } else {
@@ -111,6 +111,108 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       }
+    }
+  }
+
+  // --- 7. VOLUNTEER PAGE SEARCH + FILTER ---
+  const volunteerSearch = document.getElementById("volunteer-search");
+  const volunteerSearchBtn = document.getElementById("volunteer-search-btn");
+  const volunteerApplyBtn = document.getElementById("volunteer-apply-filters");
+  const volunteerCards = document.querySelectorAll(".volunteer-job-card");
+  const volunteerFilters = document.querySelectorAll(".volunteer-filter");
+
+  // Only run on the volunteer page (where these elements exist)
+  if (volunteerCards.length > 0) {
+
+    function filterVolunteerJobs() {
+      const searchText = volunteerSearch.value.toLowerCase().trim();
+
+      // Build an array of all checked filter values
+      const checkedCategories = [];
+      volunteerFilters.forEach(cb => {
+        if (cb.checked) {
+          checkedCategories.push(cb.value);
+        }
+      });
+
+      let visibleCount = 0;
+
+      volunteerCards.forEach(card => {
+        // Get the text content we want to search through
+        const title = card.querySelector(".volunteer-job-title").textContent.toLowerCase();
+        const body = card.querySelector(".volunteer-job-body").textContent.toLowerCase();
+        const category = card.dataset.category || "";
+
+        // Check 1: does it match the search text?
+        let matchesSearch = true;
+        if (searchText !== "") {
+          matchesSearch = title.includes(searchText) || body.includes(searchText);
+        }
+
+        // Check 2: does it match any checked filter? (OR logic)
+        let matchesFilter = true;
+        if (checkedCategories.length > 0) {
+          matchesFilter = false;
+          for (let i = 0; i < checkedCategories.length; i++) {
+            if (category.includes(checkedCategories[i])) {
+              matchesFilter = true;
+              break;
+            }
+          }
+        }
+
+        // Show card only if both checks pass
+        if (matchesSearch && matchesFilter) {
+          card.classList.remove("hidden");
+          visibleCount++;
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+
+      // Add or remove "no results" message
+      let noResultsMsg = document.getElementById("volunteer-no-results");
+      if (visibleCount === 0) {
+        if (!noResultsMsg) {
+          noResultsMsg = document.createElement("p");
+          noResultsMsg.id = "volunteer-no-results";
+          noResultsMsg.className = "volunteer-no-results";
+          noResultsMsg.textContent = "No volunteer roles matched your search or filters.";
+          document.querySelector(".volunteer-jobs-container").appendChild(noResultsMsg);
+        }
+      } else {
+        if (noResultsMsg) {
+          noResultsMsg.remove();
+        }
+      }
+    }
+
+    // Filter when Search button is clicked
+    if (volunteerSearchBtn) {
+      volunteerSearchBtn.addEventListener("click", filterVolunteerJobs);
+    }
+
+    // Filter when Apply Filters button is clicked
+    if (volunteerApplyBtn) {
+      volunteerApplyBtn.addEventListener("click", filterVolunteerJobs);
+    }
+
+    // Also filter live as user types (this is the 'input' event from T9)
+    if (volunteerSearch) {
+      volunteerSearch.addEventListener("input", filterVolunteerJobs);
+    }
+
+    // Clear all filters button
+    const volunteerClearBtn = document.getElementById("volunteer-clear-filters");
+    if (volunteerClearBtn) {
+      volunteerClearBtn.addEventListener("click", () => {
+        // Clear the search input
+        volunteerSearch.value = "";
+        // Uncheck all filter checkboxes
+        volunteerFilters.forEach(cb => cb.checked = false);
+        // Re-run the filter (which will now show everything)
+        filterVolunteerJobs();
+      });
     }
   }
 });

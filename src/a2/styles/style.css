@@ -1410,3 +1410,128 @@ form.search-container {
     border-radius: 0;
     box-shadow: none;
 }
+
+/* Volunteer jobs container - 3 cards in a row, like pet grid */
+.volunteer-jobs-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Each job card */
+.volunteer-job-card {
+    background-color: #7f8c8d; /* Single dark grey (matches your filter dropdown) */
+    color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Job title - centered at the top */
+.volunteer-job-title {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+}
+
+/* Job body text - left aligned */
+.volunteer-job-body {
+    flex: 1; /* Takes up available space so button stays at bottom */
+    text-align: left;
+}
+
+.volunteer-job-body p {
+    margin: 0 0 0.75rem 0;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: white;
+}
+
+.volunteer-job-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Button container - centered at the bottom */
+.volunteer-job-action {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+/* When a card is hidden by the filter */
+.volunteer-job-card.hidden {
+    display: none;
+}
+
+/* Message when no jobs match the filter */
+.volunteer-no-results {
+    grid-column: 1 / -1; /* Span the full grid */
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Responsive - tablets: 2 columns */
+@media (max-width: 992px) {
+    .volunteer-jobs-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Responsive - phones: 1 column */
+@media (max-width: 600px) {
+    .volunteer-jobs-container {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .volunteer-job-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* Volunteer search input - match the homepage search bar size */
+#volunteer-search {
+    width: 300px;
+    max-width: 60%;
+    margin-bottom: 0;
+}
+
+/* On phones, make it wider for easier tapping (matches index.html behaviour) */
+@media (max-width: 768px) {
+    #volunteer-search {
+        width: 80%;
+        max-width: none;
+    }
+}
+
+/* Container for filter buttons */
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Clear filters button - slightly different look to "Apply" */
+.clear-filters-btn {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.clear-filters-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
