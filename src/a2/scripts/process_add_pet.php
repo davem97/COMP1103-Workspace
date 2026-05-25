@@ -53,5 +53,5 @@ $pets[] = $newPet;
 file_put_contents($petsFile, json_encode($pets, JSON_PRETTY_PRINT));
 
 // Redirect back to admin
-header("Location: ../admin.php?success=1");
+header("Location: ../admin.php?status=added&name=" . urlencode($newPet['name']));
 exit();

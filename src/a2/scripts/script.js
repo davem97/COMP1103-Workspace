@@ -83,4 +83,34 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // --- 6. ADMIN BANNER AUTO-DISMISS + ROW HIGHLIGHT ---
+  const adminBanner = document.getElementById("admin-banner");
+
+  if (adminBanner) {
+    // Auto-dismiss the banner after 4 seconds with a fade
+    setTimeout(() => {
+      adminBanner.classList.add("banner-fade-out");
+      // After fade animation completes, hide it entirely
+      setTimeout(() => {
+        adminBanner.style.display = "none";
+      }, 500);
+    }, 4000);
+
+    // Highlight the matching row if the banner is a "success" (added pet)
+    if (adminBanner.classList.contains("banner-success")) {
+      // Get pet name from the banner text
+      const params = new URLSearchParams(window.location.search);
+      const petName = params.get("name");
+
+      if (petName) {
+        const rows = document.querySelectorAll("tbody tr[data-pet-name]");
+        rows.forEach(row => {
+          if (row.dataset.petName === petName) {
+            row.classList.add("row-highlight");
+          }
+        });
+      }
+    }
+  }
 });

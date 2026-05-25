@@ -178,29 +178,5 @@
             },
             "closing": "Apply now for the opportunity to take home this wonderful and lovely dog, Jolly, who would be a great and pleasant addition to any family."
         }
-    },
-    {
-        "id": 7,
-        "name": "Bandit",
-        "age": "1 year",
-        "gender": "Male",
-        "breed": "chihuahua",
-        "price": 100,
-        "microchip": "51231231",
-        "tag": "HP-005",
-        "sourceNumber": "VG12345",
-        "image": "placeholder.png",
-        "extraImages": [],
-        "additionalInfo": {
-            "paragraphs": [
-                "This pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is great\r\n\r\nThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is greatThis pet is great\r\n\r\n\r\nThis pet is greatThis pet is greatThis pet is great\r\n\r\nYes: yes\r\nNo: no\r\nTest: test"
-            ],
-            "moreInfo": {
-                "Kids": "14+",
-                "Weight": "3.0 kgs",
-                "Status": "Active"
-            },
-            "closing": "Contact us for more info!"
-        }
     }
 ]
