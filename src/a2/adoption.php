@@ -89,8 +89,8 @@ if (file_exists($petsFile)) {
                         <h3 class="pet-card-name"><?= htmlspecialchars($pet['name']) ?></h3>
                         <div class="pet-image-container">
                             <img src="images/<?= htmlspecialchars($pet['image']) ?>"
-                                 alt="<?= htmlspecialchars($pet['name']) ?> - <?= htmlspecialchars($pet['breed']) ?>"
-                                 class="pet-card-img">
+                                alt="<?= htmlspecialchars($pet['name']) ?> - <?= htmlspecialchars($pet['breed']) ?>"
+                                class="pet-card-img">
                         </div>
                         <div class="pet-card-details">
                             <p><strong>Age:</strong> <?= htmlspecialchars($pet['age']) ?></p>

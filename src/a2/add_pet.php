@@ -1,6 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['logged_in'])) { header("Location: admin.php"); exit(); }
+if (!isset($_SESSION['logged_in'])) {
+    header("Location: admin.php");
+    exit();
+}
 ?>
 
 <!doctype html>
@@ -34,7 +37,7 @@ if (!isset($_SESSION['logged_in'])) { header("Location: admin.php"); exit(); }
             <li><a href="volunteer.html">Volunteer</a></li>
             <li><a href="donate.php">Donate</a></li>
             <li><a href="feedback.php">Feedback</a></li>
-            <li><a href="application.html">Apply to Adopt</a></li>
+            <li><a href="application.php">Apply to Adopt</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="admin.php">Admin Portal</a></li>
         </ul>

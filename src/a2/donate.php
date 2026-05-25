@@ -25,18 +25,20 @@
     </nav>
     <h1 class="visually-hidden">Happy Paws Animal Shelter</h1>
   </header>
+
   <nav class="main-navigation">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="adoption.php">Available Pets</a></li>
-            <li><a href="volunteer.html">Volunteer</a></li>
-            <li><a href="donate.php">Donate</a></li>
-            <li><a href="feedback.php">Feedback</a></li>
-            <li><a href="application.html">Apply to Adopt</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="admin.html">Admin Portal</a></li>
-        </ul>
-    </nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="adoption.php">Available Pets</a></li>
+      <li><a href="volunteer.html">Volunteer</a></li>
+      <li><a href="donate.php">Donate</a></li>
+      <li><a href="feedback.php">Feedback</a></li>
+      <li><a href="application.php">Apply to Adopt</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="admin.php">Admin Portal</a></li>
+    </ul>
+  </nav>
+
   <main>
     <h2>Support Our Mission</h2>
     <p class="donation-disclaimer"><em>Note: This is a prototype for a student project. No real payments are
@@ -81,37 +83,37 @@
   </main>
 
   <footer>
-        <hr />
-        <div class="footer-content">
-            <img src="images/happy_paws_logo.png" alt="Happy Paws Logo" class="footer-logo" />
+    <hr />
+    <div class="footer-content">
+      <img src="images/happy_paws_logo.png" alt="Happy Paws Logo" class="footer-logo" />
 
-            <div class="footer-section">
-                <p><strong>Call</strong></p>
-                <p>(03) 5555 111 222</p>
-            </div>
+      <div class="footer-section">
+        <p><strong>Call</strong></p>
+        <p>(03) 5555 111 222</p>
+      </div>
 
-            <address class="footer-section">
-                <p><strong>Visit</strong></p>
-                <p>43 PLACEHOLDER STREET</p>
-                <p>MELBOURNE 3000</p>
-            </address>
+      <address class="footer-section">
+        <p><strong>Visit</strong></p>
+        <p>43 PLACEHOLDER STREET</p>
+        <p>MELBOURNE 3000</p>
+      </address>
 
-            <div class="footer-section">
-                <p><strong>Opening Hours</strong></p>
-                <p>MON - FRI: 9:30 AM - 5 PM</p>
-                <p>SAT: 10 AM - 3 PM</p>
-                <p>SUN: 10 AM - 2 PM</p>
-            </div>
+      <div class="footer-section">
+        <p><strong>Opening Hours</strong></p>
+        <p>MON - FRI: 9:30 AM - 5 PM</p>
+        <p>SAT: 10 AM - 3 PM</p>
+        <p>SUN: 10 AM - 2 PM</p>
+      </div>
 
-            <div class="footer-section">
-                <p>
-                    <a href="feedback.html" class="feedback-link"><strong>Feedback</strong></a>
-                </p>
-            </div>
+      <div class="footer-section">
+        <p>
+          <a href="feedback.html" class="feedback-link"><strong>Feedback</strong></a>
+        </p>
+      </div>
 
-            <p class="copyright">© 2026 Happy Paws Animal Shelter</p>
-        </div>
-    </footer>
+      <p class="copyright">© 2026 Happy Paws Animal Shelter</p>
+    </div>
+  </footer>
 </body>
 
 </html>
