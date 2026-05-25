@@ -53,4 +53,34 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+
+  // --- 5. DONATION FORM VALIDATION (ACTIVE JS) ---
+  const donationForm = document.querySelector('form[action="scripts/process_donation.php"]');
+  const amountInput = document.getElementById("amount");
+
+  if (donationForm && amountInput) {
+    donationForm.addEventListener("submit", function (event) {
+      const amountValue = parseFloat(amountInput.value);
+
+      // Check if amount is 0, negative, or not a number
+      if (isNaN(amountValue) || amountValue <= 0) {
+        // 1. Stop the form from submitting to PHP
+        event.preventDefault();
+
+        // 2. Visual Feedback: Make the border red and thick
+        amountInput.style.border = "2px solid #e74c3c";
+        amountInput.style.backgroundColor = "#fdecea";
+
+        // 3. Inform the user
+        alert("Invalid Donation: Please enter an amount greater than $0.");
+        
+        // 4. Put the cursor back in the box for them
+        amountInput.focus();
+      } else {
+        // Reset styles if they fix the mistake and try again
+        amountInput.style.border = "";
+        amountInput.style.backgroundColor = "";
+      }
+    });
+  }
 });
