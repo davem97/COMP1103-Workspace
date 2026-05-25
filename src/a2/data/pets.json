@@ -10,6 +10,7 @@
     "tag": "HP-001",
     "sourceNumber": "VB12345",
     "image": "cat1.png",
+    "extraImages": ["jolly_extra1.png", "jolly_extra2.png"],
     "additionalInfo": {
         "paragraphs": [
             "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
@@ -37,6 +38,7 @@
     "tag": "HP-001",
     "sourceNumber": "VB12345",
     "image": "cat1.png",
+    "extraImages": ["jolly_extra1.png", "jolly_extra2.png"],
     "additionalInfo": {
         "paragraphs": [
             "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
@@ -64,6 +66,7 @@
     "tag": "HP-001",
     "sourceNumber": "VB12345",
     "image": "cat1.png",
+    "extraImages": ["jolly_extra1.png", "jolly_extra2.png"],
     "additionalInfo": {
         "paragraphs": [
             "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
@@ -91,6 +94,7 @@
     "tag": "HP-001",
     "sourceNumber": "VB12345",
     "image": "cat1.png",
+    "extraImages": ["jolly_extra1.png", "jolly_extra2.png"],
     "additionalInfo": {
         "paragraphs": [
             "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
@@ -118,6 +122,7 @@
     "tag": "HP-001",
     "sourceNumber": "VB12345",
     "image": "cat1.png",
+    "extraImages": ["jolly_extra1.png", "jolly_extra2.png"],
     "additionalInfo": {
         "paragraphs": [
             "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",
@@ -145,6 +150,7 @@
     "tag": "HP-001",
     "sourceNumber": "VB12345",
     "image": "cat1.png",
+    "extraImages": ["jolly_extra1.png", "jolly_extra2.png"],
     "additionalInfo": {
         "paragraphs": [
             "Jolly is a very eccentric, well trained and loyal dog, that is exactly what makes his name so accurate and fitting.",

@@ -74,7 +74,7 @@ foreach ($pets as $p) {
 
                 <div class="pet-profile-image">
                     <img src="images/<?= htmlspecialchars($pet['image']) ?>"
-                         alt="<?= htmlspecialchars($pet['name']) ?> - <?= htmlspecialchars($pet['breed']) ?>">
+                        alt="<?= htmlspecialchars($pet['name']) ?> - <?= htmlspecialchars($pet['breed']) ?>">
                 </div>
 
                 <div class="pet-profile-info">
@@ -122,11 +122,21 @@ foreach ($pets as $p) {
                 <div class="pet-profile-actions">
                     <a href="adoption.php" class="profile-btn back-btn">&larr; Back to All Pets</a>
                     <a href="application.html?pet=<?= urlencode($pet['name']) ?>&id=<?= $pet['id'] ?>"
-                       class="profile-btn apply-btn">Apply to Adopt <?= htmlspecialchars($pet['name']) ?></a>
+                        class="profile-btn apply-btn">Apply to Adopt <?= htmlspecialchars($pet['name']) ?></a>
                     <button type="button" class="profile-btn share-btn" id="share-btn">Share</button>
                 </div>
 
                 <p id="share-feedback" class="share-feedback" aria-live="polite"></p>
+
+                <?php if (!empty($pet['extraImages']) && is_array($pet['extraImages'])): ?>
+                    <div class="pet-extra-images">
+                        <?php foreach ($pet['extraImages'] as $extraImg): ?>
+                            <img src="images/<?= htmlspecialchars($extraImg) ?>"
+                                alt="Additional photo of <?= htmlspecialchars($pet['name']) ?>"
+                                class="pet-extra-img">
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
             </section>
         <?php endif; ?>
     </main>
@@ -178,7 +188,9 @@ foreach ($pets as $p) {
                 } catch (err) {
                     shareFeedback.textContent = 'Could not copy. URL: ' + window.location.href;
                 }
-                setTimeout(() => { shareFeedback.textContent = ''; }, 3000);
+                setTimeout(() => {
+                    shareFeedback.textContent = '';
+                }, 3000);
             });
         }
     </script>
