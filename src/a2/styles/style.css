@@ -1110,9 +1110,9 @@ main p {
 }
 
 .pet-extra-img {
-    width: 220px;
-    height: 320px;
-    object-fit: cover; /* Crops to fill without distortion */
+    width: 286px;
+    height: 416px;
+    object-fit: cover;
     border-radius: 8px;
     border: 2px solid #2c3e50;
     display: block;
@@ -1126,8 +1126,8 @@ main p {
     }
 
     .pet-extra-img {
-        width: 180px;
-        height: 260px;
+        width: 234px;
+        height: 338px;
     }
 }
 
@@ -1138,7 +1138,7 @@ main p {
     }
 
     .pet-extra-img {
-        width: 140px;
-        height: 200px;
+        width: 182px;
+        height: 260px;
     }
 }
