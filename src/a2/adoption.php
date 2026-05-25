@@ -8,7 +8,43 @@ if (file_exists($petsFile)) {
         $pets = [];
     }
 }
+
+// Read the search term from URL (if any)
+$searchTerm = trim($_GET['search'] ?? '');
+$filteredPets = $pets; // Start with all pets
+
+if ($searchTerm !== '') {
+    // Split the search into individual keywords, lowercase, remove empties
+    $keywords = preg_split('/\s+/', strtolower($searchTerm));
+    $keywords = array_filter($keywords, function ($word) {
+        return strlen($word) >= 2; // Ignore single characters
+    });
+
+    // Filter pets — keep any pet where at least one keyword matches
+    $filteredPets = array_filter($pets, function ($pet) use ($keywords) {
+        // Build a searchable text string from the pet's fields
+        $searchable = strtolower(
+            $pet['name'] . ' ' .
+                $pet['breed'] . ' ' .
+                $pet['gender'] . ' ' .
+                $pet['age'] . ' ' .
+                ($pet['colour'] ?? '')
+        );
+
+        // OR logic: return true if ANY keyword is found
+        foreach ($keywords as $word) {
+            if (strpos($searchable, $word) !== false) {
+                return true;
+            }
+        }
+        return false;
+    });
+
+    // Reindex the array (good practice after array_filter)
+    $filteredPets = array_values($filteredPets);
+}
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -52,9 +88,11 @@ if (file_exists($petsFile)) {
     <main>
         <div class="search-section">
             <h2>Find Your Perfect Match</h2>
-            <div class="search-container">
-                <input type="text" id="pet-search" placeholder="Search by breed, age, or size..." />
-                <button type="button" class="search-btn">Search</button>
+            <form action="adoption.php" method="GET" class="search-container">
+                <input type="text" id="pet-search" name="search"
+                    value="<?= htmlspecialchars($searchTerm) ?>"
+                    placeholder="Search by breed, age, or size..." />
+                <button type="submit" class="search-btn">Search</button>
 
                 <div class="filter-wrapper">
                     <button type="button" id="filter-toggle" class="nav-btn">Filter</button>
@@ -62,29 +100,43 @@ if (file_exists($petsFile)) {
                     <div id="filter-dropdown" class="filter-dropdown-box">
                         <h3>Additional filters</h3>
                         <div class="checkbox-grid">
-                            <label><input type="checkbox" name="color" value="brown"> Brown</label>
-                            <label><input type="checkbox" name="color" value="white"> White</label>
-                            <label><input type="checkbox" name="color" value="blonde"> Blonde</label>
-                            <label><input type="checkbox" name="color" value="black"> Black</label>
-                            <label><input type="checkbox" name="color" value="red"> Red</label>
+                            <label><input type="checkbox" name="color[]" value="brown"> Brown</label>
+                            <label><input type="checkbox" name="color[]" value="white"> White</label>
+                            <label><input type="checkbox" name="color[]" value="blonde"> Blonde</label>
+                            <label><input type="checkbox" name="color[]" value="black"> Black</label>
+                            <label><input type="checkbox" name="color[]" value="red"> Red</label>
 
-                            <label><input type="checkbox" name="size" value="small"> Small</label>
-                            <label><input type="checkbox" name="size" value="medium"> Medium</label>
-                            <label><input type="checkbox" name="size" value="large"> Large</label>
-                            <label><input type="checkbox" name="age" value="baby"> Baby</label>
-                            <label><input type="checkbox" name="age" value="senior"> Senior</label>
+                            <label><input type="checkbox" name="size[]" value="small"> Small</label>
+                            <label><input type="checkbox" name="size[]" value="medium"> Medium</label>
+                            <label><input type="checkbox" name="size[]" value="large"> Large</label>
+                            <label><input type="checkbox" name="age[]" value="baby"> Baby</label>
+                            <label><input type="checkbox" name="age[]" value="senior"> Senior</label>
                         </div>
-                        <button type="button" class="apply-filters-btn">Apply Filter(s)</button>
+                        <button type="submit" class="apply-filters-btn">Apply Filter(s)</button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
 
+        <?php if ($searchTerm !== ''): ?>
+            <p class="search-results-info">
+                Showing results for: <strong>"<?= htmlspecialchars($searchTerm) ?>"</strong>
+                — <a href="adoption.php">Clear search</a>
+            </p>
+        <?php endif; ?>
+
         <section class="pet-display-container">
-            <?php if (empty($pets)): ?>
-                <p>No pets available at the moment. Please check back soon!</p>
+            <?php if (empty($filteredPets)): ?>
+                <?php if ($searchTerm !== ''): ?>
+                    <p class="no-results-message">
+                        Sorry, no pets matched your search for "<strong><?= htmlspecialchars($searchTerm) ?></strong>".
+                        <br>Try different keywords, or <a href="adoption.php">view all pets</a>.
+                    </p>
+                <?php else: ?>
+                    <p>No pets available at the moment. Please check back soon!</p>
+                <?php endif; ?>
             <?php else: ?>
-                <?php foreach ($pets as $pet): ?>
+                <?php foreach ($filteredPets as $pet): ?>
                     <article class="pet-card">
                         <h3 class="pet-card-name"><?= htmlspecialchars($pet['name']) ?></h3>
                         <div class="pet-image-container">

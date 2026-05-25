@@ -1399,3 +1399,14 @@ main p {
         gap: 2rem;
     }
 }
+
+/* Override default form styling for the homepage search bar
+   (the search-container is a <form> but should look like the original div) */
+form.search-container {
+    background-color: transparent;
+    padding: 0;
+    margin: 20px 0;
+    max-width: none;
+    border-radius: 0;
+    box-shadow: none;
+}
