@@ -757,7 +757,7 @@ main p {
 .pet-display-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 animals per row */
-    gap: 30px; /* Moderate gap between cards */
+    gap: 90px; /* Increased to 3x the original 30px */
     margin-top: 40px;
 }
 
@@ -834,7 +834,9 @@ main p {
 @media (max-width: 600px) {
     .pet-display-container {
         grid-template-columns: 1fr;
+        gap: 40px; /* Shorter gap for mobile so it doesn't look like a mile of empty space */
     }
+}
     
     .pet-image-container {
         height: 250px; /* Slightly smaller height for phones */
