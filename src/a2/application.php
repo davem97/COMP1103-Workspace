@@ -101,11 +101,6 @@ $prefillPetId   = $_GET['id'] ?? '';
 
             <input type="submit" id="submit" name="submit" value="Submit Application">
         </form>
-
-        <p>Welcome to Happy Paws! Our mission is to connect homeless pets with loving families. We believe every animal
-            deserves a safe home and a second chance. Browse our available
-            animals or submit an application today to start your adoption journey.
-        </p>
     </main>
 
     <footer>
