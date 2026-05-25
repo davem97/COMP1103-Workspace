@@ -13,15 +13,20 @@ The home page features a responsive hero section and a dynamic JavaScript slides
 ![Home Page Screenshot](images/homepage.png)
 
 **Annotations:**
-1. **Horizontal Menu** The reason for this menu style is because it brings simplicity to the website and with the users attention being directly at the center where the logo is, it creates ease of use. 
-2. **Search Bar** Large, accessible search bar to solve the user's primary intent immediately right inbetween all the content.
-3. **Slideshow** This slideshow is meant to show some of the animals that the shelter have. They can be searched for directly above in the search bar, or via the "Available Pets" menu option.
-4. **Vertically stacked footer** This is a very clean and clear way to handle all of the relevant information respective to the shelter; their phone number, address, etc. It is a common approach, brings an additional layer to the website and takes up some space. 
+1. **Horizontal Menu:** The reason for this menu style is because it brings simplicity to the website and with the users attention being directly at the center where the logo is, it creates ease of use. 
+2. **Search Bar:** Large, accessible search bar to solve the user's primary intent immediately right inbetween all the content.
+3. **Slideshow:** This slideshow is meant to show some of the animals that the shelter have. They can be searched for directly above in the search bar, or via the "Available Pets" menu option.
+4. **Vertically stacked footer:** This is a very clean and clear way to handle all of the relevant information respective to the shelter; their phone number, address, etc. It is a common approach, brings an additional layer to the website and takes up some space. 
 
-### 1.2 Volunteer Opportunities (`volunteer.php`)
-This page provides a clear hierarchy of information regarding shelter support roles.
-![Volunteer Page Screenshot](imgs/volunteer_annotated.png)
-* **Annotation:** Layout is structured using CSS Flexbox. The "Our Purpose" boxes utilize rounded borders (20px) and a light blue brand accent to improve visual warmth.
+### 1.5 Pet Details (`pet-details.php`)
+The home page features a responsive hero section and a dynamic JavaScript slideshow.
+![Home Page Screenshot](images/pet-details.png)
+
+**Annotations:**
+1. **Vertical animal information:** You want the potential adoptee to immediately see the animal they are looking at. With this layout completely centered with the information immediately eye-catching in the slightly darkened grey box, all the information is processed quickly. 
+2. **Additional Information:** Providing all the required and relevant information necessary about the animal. Providing as much information as possible is good because the adoptee might feel as though they are already closer to the animal from knowing its history, potential traits, and what to expect.
+3. **Buttons:** There were several locations these buttons could have been placed. I chose to place them below the animal/animal information because when adopting an animal, the animal and potential adoptee should both be granted the best fit. You do not want someone to skip through all of the information and simply press "Apply". At Happy Paws, we want what is best for the animal, and we want everyone who comes into the shelter to feel as though they can develop an immediate connection with a potential future pet.
+4. **Additional images:** Finally at the bottom of the page, a few additional images of the animal can be seen. This is so that no matter where you are on the page, you can always see the animal you are currently looking at.
 
 ---
 

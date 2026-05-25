@@ -32,7 +32,7 @@ if (!isset($_SESSION['logged_in'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="David Matic - mati0046" />
     <meta name="description" content="Happy Paws Animal Shelter - Admin Login" />
-    <title>Happy Paws - Admin Login</title>
+    <title>Happy Paws - Admin Portal</title>
     <link rel="stylesheet" href="styles/style.css" />
   </head>
 

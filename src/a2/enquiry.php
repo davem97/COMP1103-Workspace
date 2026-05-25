@@ -23,7 +23,7 @@ $role = htmlspecialchars($_GET['role'] ?? '');
                 <img src="images/happy_paws_logo.png" alt="Happy Paws Animal Shelter main logo" class="main-logo-img" />
             </div>
 
-            <button class="nav-btn donate">Donate</button>
+            <button class="nav-btn donate" onclick="location.href='donate.php'">Donate</button>
         </nav>
 
         <h1 class="visually-hidden">Happy Paws Animal Shelter</h1>
