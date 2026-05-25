@@ -51,10 +51,10 @@ if (!isset($_SESSION['logged_in'])) {
                 <legend>Basic Details</legend>
 
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" placeholder="e.g. Bob" required>
 
                 <label for="breed">Breed:</label>
-                <input type="text" id="breed" name="breed" required>
+                <input type="text" id="breed" name="breed" placeholder="e.g. Labrador" required>
 
                 <label for="age">Age:</label>
                 <input type="text" id="age" name="age" placeholder="e.g. 2 years" required>
@@ -66,14 +66,14 @@ if (!isset($_SESSION['logged_in'])) {
                 </select>
 
                 <label for="price">Price ($):</label>
-                <input type="number" id="price" name="price" min="0" step="0.01" required>
+                <input type="number" id="price" name="price" min="0" step="0.01" placeholder="e.g. $100" required>
             </fieldset>
 
             <fieldset>
                 <legend>Identification</legend>
 
                 <label for="microchip">Microchip Number:</label>
-                <input type="text" id="microchip" name="microchip" required>
+                <input type="text" id="microchip" name="microchip" placeholder="e.g. 123456712345678" required>
 
                 <label for="tag">Tag:</label>
                 <input type="text" id="tag" name="tag" placeholder="e.g. HP-007" required>
