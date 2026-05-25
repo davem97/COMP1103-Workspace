@@ -121,7 +121,7 @@ foreach ($pets as $p) {
 
                 <div class="pet-profile-actions">
                     <a href="adoption.php" class="profile-btn back-btn">&larr; Back to All Pets</a>
-                    <a href="application.html?pet=<?= urlencode($pet['name']) ?>&id=<?= $pet['id'] ?>"
+                    <a href="application.php?pet=<?= urlencode($pet['name']) ?>&id=<?= $pet['id'] ?>"
                         class="profile-btn apply-btn">Apply to Adopt <?= htmlspecialchars($pet['name']) ?></a>
                     <button type="button" class="profile-btn share-btn" id="share-btn">Share</button>
                 </div>

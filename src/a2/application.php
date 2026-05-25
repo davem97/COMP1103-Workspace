@@ -1,30 +1,32 @@
+<?php
+// If the user clicked "Apply" from a pet's profile, these come through in the URL
+$prefillPetName = $_GET['pet'] ?? '';
+$prefillPetId   = $_GET['id'] ?? '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="author" content="David Matic - mati0046">
-    <meta name="description" content="Happy Paws Animal Shelter Homepage">
-
+    <meta name="description" content="Happy Paws Animal Shelter - Apply to Adopt">
     <title>Happy Paws - Apply to Adopt</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
     <header>
-    <nav class="top-nav">
-      <button class="nav-btn" id="menu-toggle">Menu</button>
+        <nav class="top-nav">
+            <button class="nav-btn" id="menu-toggle">Menu</button>
+            <div class="logo-wrap">
+                <img src="images/happy_paws_logo.png" alt="Happy Paws Animal Shelter main logo" class="main-logo-img" />
+            </div>
+            <button class="nav-btn donate">Donate</button>
+        </nav>
+        <h1 class="visually-hidden">Happy Paws Animal Shelter</h1>
+    </header>
 
-      <div class="logo-wrap">
-        <img src="images/happy_paws_logo.png" alt="Happy Paws Animal Shelter main logo" class="main-logo-img" />
-      </div>
-
-      <button class="nav-btn donate">Donate</button>
-    </nav>
-    <h1 class="visually-hidden">Happy Paws Animal Shelter</h1>
-  </header>
     <nav class="main-navigation">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -32,25 +34,43 @@
             <li><a href="volunteer.html">Volunteer</a></li>
             <li><a href="donate.php">Donate</a></li>
             <li><a href="feedback.php">Feedback</a></li>
-            <li><a href="application.html">Apply to Adopt</a></li>
+            <li><a href="application.php">Apply to Adopt</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="admin.html">Admin Portal</a></li>
+            <li><a href="admin.php">Admin Portal</a></li>
         </ul>
     </nav>
+
     <main>
         <h2>Apply to Adopt</h2>
-        <form method="POST">
+
+        <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
+            <div style="background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; text-align: center; margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <strong>&#10003; Thank you!</strong> Your application has been submitted. We'll be in touch soon.
+            </div>
+        <?php endif; ?>
+
+        <?php if ($prefillPetName !== ''): ?>
+            <p class="application-prefill-note">
+                You're applying to adopt <strong><?= htmlspecialchars($prefillPetName) ?></strong>.
+            </p>
+        <?php endif; ?>
+
+        <form method="POST" action="scripts/process_application.php" id="application-form">
             <fieldset>
                 <legend>Your Details</legend>
                 <label for="firstname">First Name:</label>
-                <input type="text" id="firstname" name="firstname">
+                <input type="text" id="firstname" name="firstname" required>
+
                 <label for="surname">Last Name:</label>
                 <input type="text" id="surname" name="surname" required>
+
                 <label for="email">Email address:</label>
                 <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
                 <label for="phone">Phone number:</label>
-                <input type="tel" id="phone" name="phone">
+                <input type="tel" id="phone" name="phone" required>
             </fieldset>
+
             <fieldset>
                 <legend>Housing Details</legend>
 
@@ -64,23 +84,27 @@
                 <br><br>
 
                 <label><b>Type of yard:</b></label>
-
                 <p><input type="radio" id="smYard" name="yardType" value="small">Small Yard</p>
                 <p><input type="radio" id="lgYard" name="yardType" value="large">Large Yard</p>
                 <p><input type="radio" id="noYard" name="yardType" value="none">No Yard</p>
 
-                <label><b>Previous Pet Experience:</b></label>
-                <textarea name="petExperience" rows="5"></textarea>
-
+                <label for="petExperience"><b>Previous Pet Experience:</b></label>
+                <textarea id="petExperience" name="petExperience" rows="5"></textarea>
             </fieldset>
+
+            <!-- Hidden fields carrying the pet info if user came from pet-details page -->
+            <input type="hidden" name="petName" value="<?= htmlspecialchars($prefillPetName) ?>">
+            <input type="hidden" name="petId" value="<?= htmlspecialchars($prefillPetId) ?>">
 
             <input type="submit" id="submit" name="submit" value="Submit Application">
         </form>
+
         <p>Welcome to Happy Paws! Our mission is to connect homeless pets with loving families. We believe every animal
             deserves a safe home and a second chance. Browse our available
             animals or submit an application today to start your adoption journey.
         </p>
     </main>
+
     <footer>
         <hr />
         <div class="footer-content">
@@ -110,9 +134,11 @@
                 </p>
             </div>
 
-            <p class="copyright">© 2026 Happy Paws Animal Shelter</p>
+            <p class="copyright">&copy; 2026 Happy Paws Animal Shelter</p>
         </div>
     </footer>
+
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>

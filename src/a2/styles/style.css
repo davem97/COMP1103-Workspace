@@ -1196,3 +1196,12 @@ main p {
     text-align: center;
     margin: 1.5rem 0;
 }
+
+.application-prefill-note {
+    max-width: 600px;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: #eaf3f8;
+    text-align: center;
+    font-size: 1.05rem;
+}
