@@ -1096,3 +1096,49 @@ main p {
         font-size: 1.05rem;
     }
 }
+
+/* =========================================
+   14. PET PROFILE - EXTRA IMAGES
+   ========================================= */
+
+.pet-extra-images {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin: 3rem auto 3rem auto;
+    flex-wrap: wrap;
+}
+
+.pet-extra-img {
+    width: 220px;
+    height: 320px;
+    object-fit: cover; /* Crops to fill without distortion */
+    border-radius: 8px;
+    border: 2px solid #2c3e50;
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .pet-extra-images {
+        gap: 1.5rem;
+        margin: 2rem auto;
+    }
+
+    .pet-extra-img {
+        width: 180px;
+        height: 260px;
+    }
+}
+
+@media (max-width: 600px) {
+    .pet-extra-images {
+        gap: 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .pet-extra-img {
+        width: 140px;
+        height: 200px;
+    }
+}
