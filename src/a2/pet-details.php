@@ -72,13 +72,13 @@ foreach ($pets as $p) {
             <section class="pet-profile">
                 <h2><?= htmlspecialchars($pet['name']) ?></h2>
 
-                <div class="pet-profile-content">
-                    <div class="pet-profile-image">
-                        <img src="images/<?= htmlspecialchars($pet['image']) ?>"
-                             alt="<?= htmlspecialchars($pet['name']) ?> - <?= htmlspecialchars($pet['breed']) ?>">
-                    </div>
+                <div class="pet-profile-image">
+                    <img src="images/<?= htmlspecialchars($pet['image']) ?>"
+                         alt="<?= htmlspecialchars($pet['name']) ?> - <?= htmlspecialchars($pet['breed']) ?>">
+                </div>
 
-                    <div class="pet-profile-info">
+                <div class="pet-profile-info">
+                    <div class="pet-profile-info-inner">
                         <p><strong>Age:</strong> <?= htmlspecialchars($pet['age']) ?></p>
                         <p><strong>Gender:</strong> <?= htmlspecialchars($pet['gender']) ?></p>
                         <p><strong>Breed:</strong> <?= htmlspecialchars($pet['breed']) ?></p>
@@ -88,6 +88,36 @@ foreach ($pets as $p) {
                         <p><strong>Source Number:</strong> <?= htmlspecialchars($pet['sourceNumber']) ?></p>
                     </div>
                 </div>
+
+                <section class="pet-additional-info">
+                    <h3>Additional Information</h3>
+
+                    <?php if (!empty($pet['additionalInfo']) && is_array($pet['additionalInfo'])): ?>
+                        <?php $info = $pet['additionalInfo']; ?>
+
+                        <?php if (!empty($info['paragraphs'])): ?>
+                            <?php foreach ($info['paragraphs'] as $paragraph): ?>
+                                <p><?= htmlspecialchars($paragraph) ?></p>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+
+                        <?php if (!empty($info['moreInfo'])): ?>
+                            <p class="more-info-heading">More information:</p>
+                            <ul class="more-info-list">
+                                <?php foreach ($info['moreInfo'] as $label => $value): ?>
+                                    <li><strong><?= htmlspecialchars($label) ?></strong> - <?= htmlspecialchars($value) ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+
+                        <?php if (!empty($info['closing'])): ?>
+                            <p><?= htmlspecialchars($info['closing']) ?></p>
+                        <?php endif; ?>
+
+                    <?php else: ?>
+                        <p>No additional information available for this pet.</p>
+                    <?php endif; ?>
+                </section>
 
                 <div class="pet-profile-actions">
                     <a href="adoption.php" class="profile-btn back-btn">&larr; Back to All Pets</a>

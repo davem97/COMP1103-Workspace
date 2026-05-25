@@ -850,41 +850,62 @@ main p {
     max-width: 900px;
     margin: 2rem auto;
     padding: 0 1rem;
+    text-align: center;
 }
 
-.pet-profile-content {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
+/* Pet name (h2) - bigger and more prominent */
+.pet-profile h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
+/* The image */
 .pet-profile-image {
-    flex: 1 1 300px;
+    max-width: 600px;
+    margin: 0 auto 1rem auto;
 }
 
 .pet-profile-image img {
     width: 100%;
+    height: auto;
     border-radius: 8px;
+    display: block;
 }
 
+/* The traits BOX - matches image width, contains the centered traits */
 .pet-profile-info {
-    flex: 1 1 300px;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    background-color: #ecf0f1;
+    border: 2px solid #2c3e50;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center; /* Centers the inner traits block horizontally */
 }
 
-.pet-profile-info p {
-    margin: 0.5rem 0;
+/* Inner wrapper - sized to fit the longest trait, centered as a unit */
+.pet-profile-info-inner {
+    display: inline-block;
+    text-align: left;
 }
 
+.pet-profile-info-inner p {
+    margin: 0.6rem 0;
+    font-size: 1.1rem;
+}
+
+/* Buttons row */
 .pet-profile-actions {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     flex-wrap: wrap;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+    justify-content: center;
 }
 
 .profile-btn {
-    padding: 0.7rem 1.2rem;
+    padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -900,7 +921,7 @@ main p {
     opacity: 0.85;
 }
 
-.back-btn { background: #7f8c8d; color: white; }
+.back-btn  { background: #7f8c8d; color: white; }
 .apply-btn { background: #27ae60; color: white; }
 .share-btn { background: #2c3e50; color: white; }
 
@@ -909,38 +930,161 @@ main p {
     color: #27ae60;
     font-weight: bold;
     min-height: 1.2em;
+    text-align: center;
 }
 
 /* =========================================
-   12. RESPONSIVE - PET PROFILE PAGE
+   12. PET PROFILE - ADDITIONAL INFO
    ========================================= */
 
-/* Tablets - tighten spacing */
-@media (max-width: 992px) {
-    .pet-profile-content {
-        gap: 1.5rem;
+.pet-additional-info {
+    max-width: 600px; /* Matches the image width for visual alignment */
+    margin: 2.5rem auto;
+    text-align: left; /* Text left-aligned within the centered block */
+    padding: 0 1rem;
+}
+
+.pet-additional-info h3 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin: 0 0 1.25rem 0;
+    text-align: left;
+}
+
+.pet-additional-info p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #333;
+    margin: 0 0 1rem 0;
+}
+
+.pet-additional-info p:last-child {
+    margin-bottom: 0;
+}
+
+.more-info-heading {
+    font-weight: bold;
+    margin-bottom: 0.5rem !important;
+}
+
+.more-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem 0;
+}
+
+.more-info-list li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* =========================================
+   13. RESPONSIVE - PET PROFILE PAGE
+   ========================================= */
+
+/* Large desktops / 2K monitors - bigger image, more breathing room */
+@media (min-width: 1400px) {
+    .pet-profile {
+        max-width: 1000px;
+    }
+
+    .pet-profile h2 {
+        font-size: 2.8rem;
+    }
+
+    .pet-profile-image {
+        max-width: 700px;
+    }
+
+    .pet-profile-info {
+        max-width: 700px; /* ADD THIS */
+    }
+
+    .pet-additional-info {
+        max-width: 700px;
     }
 }
 
-/* Small tablets / large phones - stack image above info */
+/* Tablets */
+@media (max-width: 992px) {
+    .pet-profile h2 {
+        font-size: 2.2rem;
+    }
+
+    .pet-profile-image {
+        max-width: 90%;
+    }
+
+    .pet-profile-info {
+        max-width: 90%;
+    }
+
+    .pet-additional-info {
+        max-width: 90%;
+    }
+}
+
+/* Small tablets / large phones */
 @media (max-width: 768px) {
     .pet-profile {
         margin: 1rem auto;
     }
 
-    .pet-profile-content {
-        flex-direction: column;
-        gap: 1rem;
+    .pet-profile h2 {
+        font-size: 1.9rem;
     }
 
-    .pet-profile-image,
+    .pet-profile-image {
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
     .pet-profile-info {
-        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .pet-additional-info {
+        max-width: 100%;
+        margin: 2rem auto;
+    }
+
+    .pet-additional-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .pet-additional-info p,
+    .more-info-list li {
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+
+    .pet-profile-actions {
+        gap: 1rem;
     }
 }
 
-/* Phones - full-width stacked buttons for easier tapping */
+/* Phones */
 @media (max-width: 600px) {
+    .pet-profile h2 {
+        font-size: 1.7rem;
+    }
+
+    .pet-profile-info p {
+        font-size: 1rem;
+    }
+
+    .pet-additional-info {
+        margin: 1.5rem auto;
+        padding: 0 0.5rem;
+    }
+
+    .pet-additional-info p,
+    .more-info-list li {
+        font-size: 0.98rem;
+    }
+
     .pet-profile-actions {
         flex-direction: column;
         gap: 0.75rem;
